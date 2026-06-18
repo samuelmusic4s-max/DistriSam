@@ -1,0 +1,100 @@
+---
+interface Props {
+    activePage: 'inicio' | 'catalogo' | 'quienes-somos' | 'contacto';
+}
+
+const {activePage} = Astro.props;
+---
+<nav>
+    <div class="container nav-inner">
+        <a href="/" class="nav-logo">
+            <img src="/logo.png" alt="DistriSam logo"/>
+            <span> DistriSam Make Up </span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
+            <li><a href="/catalogo" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo</a></li>
+            <li><a href="/quienes-somos" class={activePage === 'quienes-somos' ? 'active' : ''}>Quiénes Somos</a></li>
+            <li><a href="/contacto" class={activePage === 'contacto' ? 'active' : ''}>Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button aria-label="Buscar"><span class="material-symbols-outlined">search</span></button>
+            <button aria-label="Carrito"><span class="material-symbols-outlined">shopping_cart</span></button>
+            <button class="nav-toggle" aria-label="Menú"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+    </div>
+</nav>
+
+<style>
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 0;
+    }
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--fg);
+    }
+    .nav-logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+    }
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+    }
+    .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+        transition: color 0.2s;
+        position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--accent-deep);
+    }
+    .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--accent-deep);
+    }
+    .nav-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    .nav-actions button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--accent-deep);
+        font-size: 24px;
+        transition: color 0.2s;
+    }
+    .nav-actions button:hover {
+        color: var(--gold-shimmer);
+    }
+    .nav-toggle {
+        display: none;
+    }
+</style>

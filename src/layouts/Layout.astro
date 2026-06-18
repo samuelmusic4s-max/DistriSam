@@ -1,0 +1,50 @@
+---
+import '../styles/global.css'
+import Navigation from '../components/Navigation.astro'
+
+interface Props {
+	title: string;
+	description?: string;
+	activePage?: 'inicio' | 'catalogo' | 'quienes-somos' | 'contacto';
+}
+
+const {title,description = "DistriSam Make Up - Tu distribuidora de belleza de confianza", activePage } = Astro.props
+---
+
+<!Doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<meta name="viewport" content="width=device-width"/>
+		<meta name="generator" content={Astro.generator}/>
+		<meta name="description" content={description}/>
+		<title>{title}</title>
+	</head>
+	<body>
+		{activePage && <Navigation activePage={activePage} />}
+		<slot/>
+	</body>
+</html>
+
+<script>
+	// Intersection Observer for scroll-reveal animations
+	document.addEventListener('DOMContentLoaded', () => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+		);
+
+		// Observe all elements with data-reveal attribute
+		document.querySelectorAll('[data-reveal]').forEach((el) => {
+			observer.observe(el);
+		});
+	});
+</script>

@@ -1,0 +1,67 @@
+---
+interface SocialItem {
+  svgIcon: string;
+  href: string;
+  label: string;
+  hoverColor: string;
+}
+
+interface Props {
+  items: SocialItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="social-row">
+  {items.map((item) => {
+    return (
+      <a 
+        href={item.href} 
+        class="social-btn" 
+        aria-label={item.label} 
+        target={item.href.startsWith('http') ? "_blank" : undefined}
+        rel={item.href.startsWith('http') ? "noopener" : undefined}
+        style={`--brand-hover: ${item.hoverColor};`}
+      >
+        <Fragment set:html={item.svgIcon} />
+      </a>
+    );
+  })}
+</div>
+
+<style>
+  .social-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  .social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-deep);
+    text-decoration: none;
+    transition: all 0.5s ease;
+    box-shadow: 0 2px 8px rgba(197, 160, 89, 0.06);
+  }
+  .social-btn :global(svg) {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+    transition: all 0.3s ease;
+  }
+  .social-btn:hover {
+    background: var(--brand-hover);
+    color: var(--surface);
+    border-color: var(--brand-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(197, 160, 89, 0.18);
+  }
+</style>

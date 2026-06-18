@@ -1,0 +1,119 @@
+---
+import Logo from './Logo.astro';
+---
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <Logo size={60} invert class="footer-brand-logo" />
+                <p class="tagline">"Constancia y Disciplina"</p>
+                <div class="footer-contact">
+                    <a href="https://wa.me/573177323310"><span class="material-symbols-outlined">call</span> WhatsApp: +57 317 732 3310</a>
+                    <a href="https://tiktok.com/@distrisam.makeup"><span class="material-symbols-outlined">play_arrow</span> TikTok: @distrisam.makeup</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Privacidad</a>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <a href="/">Inicio</a>
+                <a href="/catalogo">Catálogo</a>
+                <a href="/quienes-somos">Quiénes Somos</a>
+                <a href="/contacto">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2030 DistriSam Make Up - Constancia y Disciplina</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    footer {
+        background: var(--matte-black);
+        color: var(--gold-shimmer);
+        padding: 4rem 0 2rem;
+        width: 100%;
+        margin-top: auto;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    .footer-brand-logo {
+        margin-bottom: 1rem;
+    }
+    .footer-brand .tagline {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 16px;
+        color: var(--surface);
+        opacity: 0.9;
+        margin-bottom: 1.5rem;
+    }
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .footer-contact a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 14px;
+        color: var(--surface);
+        opacity: 0.8;
+        transition: all 0.2s;
+    }
+    .footer-contact a:hover {
+        opacity: 1;
+        color: var(--gold-shimmer);
+    }
+    .footer-contact .material-symbols-outlined {
+        font-size: 16px;
+    }
+    .footer-col h4 {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.15rem;
+        text-transform: uppercase;
+        color: var(--gold-shimmer);
+        margin-bottom: 1rem;
+    }
+    .footer-col a {
+        display: block;
+        font-size: 14px;
+        color: var(--surface);
+        opacity: 0.8;
+        margin-bottom: 0.75rem;
+        transition: all 0.2s;
+    }
+    .footer-col a:hover {
+        opacity: 1;
+        color: var(--gold-shimmer);
+    }
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 1.5rem;
+        text-align: center;
+        font-size: 12px;
+        opacity: 0.6;
+    }
+
+    @media (min-width: 768px) {
+        .footer-grid {
+            grid-template-columns: 1.5fr 1fr 1fr;
+        }
+    }
+</style>

@@ -1,0 +1,188 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  svgIcon: string;
+  href: string;
+  featured?: boolean;
+  external?: boolean;
+  index?: number;
+  hoverColor?: string;
+}
+
+const { title, subtitle, svgIcon, href, featured = false, external = false, index = 0, hoverColor = "var(--accent-deep)" } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={['link-btn', { featured }]}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener" : undefined}
+  style={`--stagger: ${index}; --brand-hover: ${hoverColor};`}
+>
+  <div class="icon">
+    <Fragment set:html={svgIcon} />
+  </div>
+  <div class="text">
+    <div class="title">{title}</div>
+    <div class="subtitle">{subtitle}</div>
+  </div>
+  <span class="material-symbols-outlined arrow">arrow_forward</span>
+</a>
+
+<style>
+  .link-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+    box-shadow: 0 2px 8px rgba(197, 160, 89, 0.06);
+    overflow: hidden;
+    animation: link-card-in 700ms ease-out both;
+    animation-delay: calc(var(--stagger, 0) * 120ms + 300ms);
+  }
+  /* Accent line on hover (left edge) */
+  .link-btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent-deep);
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+  }
+  .link-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(197, 160, 89, 0.18);
+    border-color: var(--brand-hover);
+  }
+  .link-btn:hover::before {
+    transform: scaleY(1);
+    background: var(--brand-hover);
+  }
+  .link-btn .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-deep);
+    flex-shrink: 0;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+  /* Style the injected SVG */
+  .link-btn .icon :global(svg) {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+  .link-btn:hover .icon {
+    background: var(--brand-hover);
+    color: var(--surface);
+  }
+  .link-btn .text {
+    flex: 1;
+    min-width: 0;
+  }
+  .link-btn .text .title {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .link-btn .text .subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 1px;
+  }
+  .link-btn .arrow {
+    color: var(--muted);
+    font-size: 20px;
+    transition: transform 0.4s ease, color 0.4s ease;
+  }
+  .link-btn:hover .arrow {
+    transform: translateX(4px);
+    color: var(--brand-hover);
+  }
+  .link-btn:active {
+    transform: translateY(-1px);
+  }
+
+  /* Featured Link */
+  .link-btn.featured {
+    background: linear-gradient(135deg, var(--matte-black) 0%, #2a2418 100%);
+    color: var(--surface);
+    border-color: var(--accent);
+    animation: link-card-in 700ms ease-out both,
+               featured-pulse 4.5s ease-in-out infinite 1.5s;
+    animation-delay: calc(var(--stagger, 0) * 120ms + 300ms), 1.5s;
+  }
+  .link-btn.featured::before {
+    background: var(--accent);
+  }
+  .link-btn.featured .icon {
+    background: var(--accent);
+    color: var(--matte-black);
+  }
+  .link-btn.featured .text .subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .link-btn.featured:hover {
+    background: var(--brand-hover);
+    border-color: var(--brand-hover);
+    box-shadow: 0 12px 32px rgba(197, 160, 89, 0.32);
+  }
+  .link-btn.featured:hover .icon {
+    background: var(--surface);
+    color: var(--brand-hover);
+  }
+  .link-btn.featured .arrow {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .link-btn.featured:hover .arrow {
+    color: var(--surface);
+  }
+
+  /* 
+   * Dynamic variant colors are now handled entirely by the inline style:
+   * --brand-hover: ${hoverColor};
+   * So we no longer need hardcoded variant classes!
+   */
+
+  @keyframes link-card-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes featured-pulse {
+    0%, 100% {
+      box-shadow: 0 2px 8px rgba(197, 160, 89, 0.06),
+                  0 0 0 0 rgba(197, 160, 89, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 16px rgba(197, 160, 89, 0.18),
+                  0 0 0 6px rgba(197, 160, 89, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .link-btn,
+    .link-btn.featured { animation: none; }
+    .link-btn:hover { transform: none; }
+    .link-btn::before { transition: none; }
+  }
+</style>

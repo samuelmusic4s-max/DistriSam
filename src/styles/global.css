@@ -1,0 +1,165 @@
+/* Import external Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Questrial&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+:root {
+  /* Brand Colors */
+  --bg: #fff8f3;
+  --surface: #ffffff;
+  --fg: #1e1b16;
+  --muted: #4e4639;
+  --border: #fff0f3;
+  --accent: #c5a059;
+  --accent-deep: #775a19;
+  --gold-shimmer: #e5c185;
+  --soft-blush: #fff0f3;
+  --cream: #fcf9f7;
+  --matte-black: #1a1a1a;
+
+  /* Typography */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Questrial", -apple-system, system-ui, sans-serif;
+
+  /* Animation Tokens */
+  --anim-entry-duration: 700ms;
+  --anim-entry-easing: ease-out;
+  --anim-stagger-delay: 120ms;
+  --anim-hover-duration: 0.5s;
+  --anim-hover-fast: 0.3s;
+  --anim-ring-spin: 14s;
+  --anim-pulse: 2s;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base HTML and Body Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll Reveal Animations */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s var(--anim-entry-easing),
+    transform 0.8s var(--anim-entry-easing);
+}
+
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children on scroll-reveal */
+[data-reveal][data-stagger] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s var(--anim-entry-easing),
+    transform 0.6s var(--anim-entry-easing);
+}
+
+[data-reveal][data-stagger].visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal][data-stagger].visible > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+[data-reveal][data-stagger].visible > *:nth-child(2) {
+  transition-delay: 100ms;
+}
+[data-reveal][data-stagger].visible > *:nth-child(3) {
+  transition-delay: 200ms;
+}
+[data-reveal][data-stagger].visible > *:nth-child(4) {
+  transition-delay: 300ms;
+}
+[data-reveal][data-stagger].visible > *:nth-child(5) {
+  transition-delay: 400ms;
+}
+[data-reveal][data-stagger].visible > *:nth-child(6) {
+  transition-delay: 500ms;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal][data-stagger] > * {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Unified Hover Transitions */
+a,
+button,
+.btn-primary,
+.btn-secondary {
+  transition: all var(--anim-hover-duration) ease;
+}
+
+a:hover,
+button:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  transition-duration: var(--anim-hover-fast);
+}
+
+/* Unified Hover Transitions */
+a,
+button,
+.btn-primary,
+.btn-secondary {
+  transition: all var(--anim-hover-duration) ease;
+}
+
+a:hover,
+button:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  transition-duration: var(--anim-hover-fast);
+}
+
+/* Common Background Shimmer SVG Pattern */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c0 16.568 13.432 30 30 30-16.568 0-30 13.432-30 30C30 43.432 16.568 30 0 30 16.568 30 30 16.568 30 0z' fill='%23E5C185' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}

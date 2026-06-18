@@ -1,0 +1,161 @@
+---
+// Logo.astro — Componente reutilizable del logo de DistriSam Make Up.
+// Props:
+//   size    : 'sm' (40px) | 'md' (110px) | 'lg' (200px) | número custom
+//   ring    : activa el anillo dorado giratorio (conic-gradient)
+//   badge   : activa el badge "Verificado" en bottom-right
+//   invert  : invierte colores para usar sobre fondos oscuros (footer)
+//   alt     : texto alternativo
+//   class   : clases extra para el contenedor externo
+// TODO: reemplazar el src remoto por /logo.png cuando se tenga el archivo local.
+
+interface Props {
+  size?: 'sm' | 'md' | 'lg' | number;
+  ring?: boolean;
+  badge?: boolean;
+  invert?: boolean;
+  alt?: string;
+  class?: string;
+}
+
+const {
+  size = 'md',
+  ring = false,
+  badge = false,
+  invert = false,
+  alt = 'DistriSam Make Up',
+  class: className = '',
+} = Astro.props;
+
+const sizeClass = typeof size === 'number' ? 'logo-custom' : `logo-${size}`;
+const customStyle = typeof size === 'number' ? `--logo-size: ${size}px;` : undefined;
+const LOGO_SRC = 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9VUTk75ccZhK7N4akskvaabcQjt3bdyzEPglxlYlkUQJ2WUtRoY-sof2GcuD0B_yIydz208wWYqyOXpyKNWRWO5ZEJaRTkfKnhPyFFoqLpTDGoOMq4UTyH8vC0MK9s-otAkUkDAuuzTPMPh1bgaq9ye2YQVyqj5l6O13QSfQs1sVWJXgAEYWK5EqidhLwcud3uE0iAoHAgTdPfN0hjfahZA-56Xlu-WL6pPkL5aZduMUUVsMB6BFXRObEZcpmXD-aeo0S0RfzywQ';
+---
+
+<div
+  class:list={['logo', sizeClass, { 'logo-ring': ring, 'logo-badge': badge, 'logo-invert': invert }, className]}
+  style={customStyle}
+>
+  <div class="logo-img-wrap">
+    <img src={LOGO_SRC} alt={alt} loading="lazy" decoding="async" />
+  </div>
+  {badge && (
+    <span class="logo-badge-icon" aria-label="Verificado">
+      <span class="material-symbols-outlined">verified</span>
+    </span>
+  )}
+</div>
+
+<style>
+  .logo {
+    position: relative;
+    display: inline-block;
+    width: var(--logo-size, 110px);
+    height: var(--logo-size, 110px);
+    flex-shrink: 0;
+  }
+
+  .logo-sm { --logo-size: 40px; }
+  .logo-md { --logo-size: 110px; }
+  .logo-lg { --logo-size: 200px; }
+
+  .logo-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1.5px solid var(--accent);
+    z-index: 1;
+  }
+  .logo-sm .logo-img-wrap { border-width: 1px; }
+  .logo-lg .logo-img-wrap { border-width: 3px; }
+
+  .logo-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8%;
+  }
+  .logo-sm .logo-img-wrap img { padding: 10%; }
+  .logo-lg .logo-img-wrap img { padding: 12%; }
+
+  /* Anillo dorado giratorio (conic-gradient) */
+  .logo-ring::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      var(--accent) 0%,
+      var(--gold-shimmer) 25%,
+      var(--accent-deep) 50%,
+      var(--gold-shimmer) 75%,
+      var(--accent) 100%
+    );
+    z-index: 0;
+    animation: logo-ring-spin 9s linear infinite;
+  }
+  .logo-ring .logo-img-wrap {
+    box-shadow: 0 0 0 3px var(--bg), 0 8px 24px rgba(197, 160, 89, 0.22);
+  }
+  .logo-sm.logo-ring::before { inset: -3px; }
+  .logo-sm.logo-ring .logo-img-wrap { box-shadow: 0 0 0 2px var(--bg), 0 4px 12px rgba(197, 160, 89, 0.15); }
+  .logo-lg.logo-ring::before { inset: -8px; }
+  .logo-lg.logo-ring .logo-img-wrap { box-shadow: 0 0 0 5px var(--bg), 0 12px 40px rgba(197, 160, 89, 0.25); }
+
+  @keyframes logo-ring-spin {
+    to { transform: rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-ring::before { animation: none; }
+  }
+
+  /* Badge "Verificado" */
+  .logo-badge-icon {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 32%;
+    height: 32%;
+    background: var(--accent-deep);
+    color: var(--surface);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg);
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(119, 90, 25, 0.4);
+  }
+  .logo-badge-icon .material-symbols-outlined {
+    font-size: 55%;
+    font-variation-settings: 'FILL' 1, 'wght' 700;
+  }
+  .logo-sm .logo-badge-icon {
+    width: 38%;
+    height: 38%;
+    bottom: -1px;
+    right: -1px;
+    border-width: 1.5px;
+  }
+  .logo-lg .logo-badge-icon {
+    width: 20%;
+    height: 20%;
+    bottom: 8px;
+    right: 8px;
+    border-width: 3px;
+  }
+
+  /* Variante invertida (footer sobre fondo oscuro) */
+  .logo-invert .logo-img-wrap {
+    background: transparent;
+    border: none;
+  }
+  .logo-invert .logo-img-wrap img {
+    filter: brightness(0) invert(1);
+    padding: 0;
+  }
+</style>
