@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
-  image: string;
+  image: any;
   alt: string;
   category: string;
   name: string;
@@ -13,7 +15,7 @@ const { image, alt, category, name, price, tag } = Astro.props;
 
 <article class="product-card">
   <div class="product-image">
-    <img src={image} alt={alt} loading="lazy" />
+    <Image src={image} alt={alt} width={600} height={600} />
     {tag && <span class="product-tag">{tag}</span>}
     <div class="product-overlay">
       <button class="add-to-cart" type="button" aria-label={`Agregar ${name} al carrito`}>

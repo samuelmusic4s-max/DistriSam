@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.png';
+
 // Logo.astro — Componente reutilizable del logo de DistriSam Make Up.
 // Props:
 //   size    : 'sm' (40px) | 'md' (110px) | 'lg' (200px) | número custom
@@ -7,7 +10,6 @@
 //   invert  : invierte colores para usar sobre fondos oscuros (footer)
 //   alt     : texto alternativo
 //   class   : clases extra para el contenedor externo
-// TODO: reemplazar el src remoto por /logo.png cuando se tenga el archivo local.
 
 interface Props {
   size?: 'sm' | 'md' | 'lg' | number;
@@ -29,7 +31,6 @@ const {
 
 const sizeClass = typeof size === 'number' ? 'logo-custom' : `logo-${size}`;
 const customStyle = typeof size === 'number' ? `--logo-size: ${size}px;` : undefined;
-const LOGO_SRC = 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9VUTk75ccZhK7N4akskvaabcQjt3bdyzEPglxlYlkUQJ2WUtRoY-sof2GcuD0B_yIydz208wWYqyOXpyKNWRWO5ZEJaRTkfKnhPyFFoqLpTDGoOMq4UTyH8vC0MK9s-otAkUkDAuuzTPMPh1bgaq9ye2YQVyqj5l6O13QSfQs1sVWJXgAEYWK5EqidhLwcud3uE0iAoHAgTdPfN0hjfahZA-56Xlu-WL6pPkL5aZduMUUVsMB6BFXRObEZcpmXD-aeo0S0RfzywQ';
 ---
 
 <div
@@ -37,7 +38,7 @@ const LOGO_SRC = 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9VUTk75cc
   style={customStyle}
 >
   <div class="logo-img-wrap">
-    <img src={LOGO_SRC} alt={alt} loading="lazy" decoding="async" />
+    <Image src={logoImg} alt={alt} loading="eager" decoding="async" />
   </div>
   {badge && (
     <span class="logo-badge-icon" aria-label="Verificado">

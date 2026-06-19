@@ -2,6 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Logo from '../components/Logo.astro';
 import ProductCard from '../components/ProductCard.astro';
+import { Image } from 'astro:assets';
+
+import imgVitC from '../assets/products/01-kit-bioaqua-vitamina-c.jpg';
+import imgHialuronico from '../assets/products/08-crema-acido-hialuronico.jpg';
+import imgAguacate from '../assets/products/02-kit-bioaqua-aguacate.jpg';
+import imgCeramidas from '../assets/products/05-tonico-ceramidas.jpg';
+import imgSolar from '../assets/products/13-protector-solar.jpg';
+import imgArroz from '../assets/products/10-serum-arroz.jpg';
 ---
 
 <Layout title="Inicio — DistriSam Make Up" activePage="inicio">
@@ -29,12 +37,12 @@ import ProductCard from '../components/ProductCard.astro';
 
           <div class="bento-grid" data-stagger>
             <div class="bento-large">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpsvrwOdezLuCFo4B3ODSjV2zVgT9Ut55vGpX5JS1ms00tBPRvsgW7AT6c52H3pg1FsFAAC51pQz3ONEixGAO07jvWlPVXB6zFFvi8rMu50OtU2HJPtJj7ga2GY43fmWML5TRbslDTuF1mdsirEUrEqsHA7CdXHv-AMZTsjkOt6lcxDFJ4yzPhiZNbkQJ-q2KEGugU-XJVLWRKBqj_lIatNU1vaTLEG8xus_ghzcL6fKcufSF_9Iy46AOAUVVLsmoEWY1PLleYlQ4" alt="Paletas Sunset Glow" />
+              <Image src={imgVitC} alt="Kit Bioaqua Vitamina C" width={800} height={600} />
               <div class="overlay"></div>
               <div class="content">
-                <span class="tag">Colección de Verano</span>
-                <h3>Paletas Sunset Glow</h3>
-                <p>Tonos cálidos y vibrantes para un look radiante y sofisticado. Pigmentación intensa que dura todo el día.</p>
+                <span class="tag">Colección Exclusiva</span>
+                <h3>Kit Bioaqua Vitamina C</h3>
+                <p>Ilumina y revitaliza tu piel con nuestro kit completo de Vitamina C. Especial para manchas y luminosidad natural.</p>
                 <a href="/catalogo" class="link">
                   Descubrir
                   <span class="material-symbols-outlined">arrow_forward</span>
@@ -44,12 +52,12 @@ import ProductCard from '../components/ProductCard.astro';
 
             <div class="bento-stack">
               <div class="bento-small">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIVclEUbino_JuVaVyt_qo4XnRrCLNZkYwCVhz49OZEin2YeC3HRSWjhNUUBCrA4377_r6KflHZCqWlXADElKxFfFmxZs-nG5yXRm7kefunZPgWvEmAsaF7dR0kktsoGZ8a3BSzgOjA7_-OshGt73R-ru9Bbl-WCbn-BsVE1A7DvVkOaj9ueV8-oBdAgz02ZZBBNqT_AjkdYi-fNDXNqONOi5ZHA-imYWB6WovVEDMsNhq_rN0_BkTR4df6c_M-lWgLDP0MfwIceQ" alt="Labiales Mate Velvet" />
+                <Image src={imgHialuronico} alt="Crema Ácido Hialurónico" width={400} height={300} />
                 <div class="overlay"></div>
                 <div class="content">
-                  <h3>Labiales Mate Velvet</h3>
+                  <h3>Crema Ácido Hialurónico</h3>
                   <a href="/catalogo" class="link">
-                    Ver tonos
+                    Ver detalles
                     <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
                   </a>
                 </div>
@@ -79,7 +87,7 @@ import ProductCard from '../components/ProductCard.astro';
 
           <div class="product-grid" data-stagger>
             <ProductCard
-              image="https://lh3.googleusercontent.com/aida-public/AB6AXuDcPH69EvINxLxphkbaiZNlHCs2DVo3gAETFQTRUzQhDBG70l2uO63Zj2OVgaZyB6Izm2KYEOzEnZqtZe_iYvUFOcEqWZHDA-bo3MPaZEC0ASRMiXLhQf-IxN6sROt5e8xi4YaX9QxUivuNp8P8DXalGvCJURt0irW5ZXMSVTwuNcqq5BZktw6V0LnvURg9MfykoYlzZmj0zsMBiVp-kwD5yf5-685DIC7UcQrqieGTMCIJY2FFMvHwTuv2sjVACEPgSfzDE54lcRA"
+              image={imgAguacate}
               alt="Kit Bioaqua Aguacate"
               category="Kits de Cuidado"
               name="Kit Bioaqua Aguacate"
@@ -87,7 +95,7 @@ import ProductCard from '../components/ProductCard.astro';
               tag="Bestseller"
             />
             <ProductCard
-              image="https://lh3.googleusercontent.com/aida-public/AB6AXuBrcJvlCe0XOKQx1OAY1TC3rvNefkEMK_j3vIFYJzZMuKmQrpTDIzERg94dDoPDdXhvyNKsn6N72_DorL_UG2h9QIIjo6FoH6XZZ7QjDY9eeBq1eVIVh6FuyxjHasd43O42_MuhbdYeoHBe2T7_k1jTQHA90sIYFm-nU-Pxhon5YV5QoqTBoeVBea0vSkD0yfWfqUhd7_8dCCWNSPLRW6vfrETSz2f7Nticv6NwTRXdZLLaQt_YpgfOZ2nHVqMq7KA2iD0fpCYvfmE"
+              image={imgCeramidas}
               alt="Tónico Ceramidas"
               category="Cuidado Facial"
               name="Tónico de Ceramidas y Ácido Hialurónico"
@@ -95,14 +103,14 @@ import ProductCard from '../components/ProductCard.astro';
               tag="Nuevo"
             />
             <ProductCard
-              image="https://lh3.googleusercontent.com/aida-public/AB6AXuDIR0goTMzwNVlyMPq4gQ5MABWGR44bHW0VgZKVMSwo28pyld1A7phtP9IS1Bgre_1DE-toJnGURG56RfusTHcajGpVYptK85ZgNOBKffOboHhrQ3bo_yOErZQGLg_UaugTRPXezZWi5v6AJemtw2ETBE4w48Y6FPComXDgFxrSf_h3_xPYH5SPIvXEi1I9SpsoFiHK4XQq9qZhGUM3OnZFwWV8fquYYm8dmsNunQPEmDWPCI3EqkOoMaIStKQLMvUuzDwEjvvPBNM"
+              image={imgSolar}
               alt="Protector Solar"
               category="Protección Solar"
               name="Protector Solar Sadoer SPF 90+"
               price="$11.500 COP"
             />
             <ProductCard
-              image="https://lh3.googleusercontent.com/aida-public/AB6AXuB9qy2OrVjY8Mz9OdsPs_iFAyh6Y3Il0i9NGP5x0n4BW2qT7OlfDC8mz3TrJpfguIeMYTZDGzfXZ2H5DBsWr4N2yyZuNMakFKbFSBL8dWfX0eHk-2__6qGqP_wVIJkHRFMt9xFJR_2csfQ1-cf9xx2XxB08NQWxmUVnwewsJHcvDlaj0IlD0JntRegsiXkBxflhxOqD9EP_-4_V3BrL5glvLlyPDBR_xhnwNUpmn2HZLBgsxpBDYKr7gYjXgiuCM0Sc1cpwPh0WK2w"
+              image={imgArroz}
               alt="Serum Arroz"
               category="Serums"
               name="Serum Arroz Bioaqua"
