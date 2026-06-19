@@ -10,26 +10,87 @@ import imgHero from '../../assets/products/01-kit-bioaqua-vitamina-c.jpg';
     <div class="hero-content" data-reveal="blur-up">
         <h1 class="hero-title">Florece desde adentro. Brilla hacia afuera.</h1>
         <p class="hero-desc">Porque mereces sentirte hermosa en tu propia piel. Encuentra la magia del cuidado personal para consentirte, con opciones de compra al detal o al por mayor.</p>
-        <a href="#solucion" class="btn-primary-magnetic">Inicia tu viaje aquí</a>
+        <a href="#solucion" class="btn-primary-magnetic">
+          <span class="btn-text">Inicia tu viaje aquí</span>
+        </a>
     </div>
 </section>
 <style>
-  .modelo-hero { position: relative; height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+  .modelo-hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; }
-  .hero-img { width: 100%; height: 100%; object-fit: cover; animation: slowZoom 30s infinite alternate ease-in-out; }
-  @keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,26,26,0.2), rgba(26,26,26,0.95)); }
-  .hero-content { position: relative; z-index: 1; max-width: 1000px; color: #F9F6F0; padding: 0 1.5rem; }
-  .hero-title { font-size: clamp(3.5rem, 7vw, 6.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-  .hero-desc { font-size: clamp(1.125rem, 3vw, 1.35rem); font-weight: 300; max-width: 800px; margin: 0 auto 3rem; line-height: 1.8; opacity: 0.9; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; animation: slowZoom 35s infinite alternate ease-in-out; }
+  @keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
+  
+  /* Mejoramos el overlay para dar mayor contraste y elegancia */
+  .hero-overlay { 
+    position: absolute; 
+    inset: 0; 
+    background: radial-gradient(circle at center, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.7) 100%), 
+                linear-gradient(to bottom, rgba(10, 10, 10, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
+  }
+  
+  .hero-content { position: relative; z-index: 1; max-width: 1000px; color: #fff; padding: 0 1.5rem; }
+  
+  .hero-title { 
+    font-family: var(--font-display, "Playfair Display", serif);
+    font-size: clamp(3.5rem, 8vw, 7rem); 
+    font-weight: 400; 
+    line-height: 1.05; 
+    margin-bottom: 1.5rem; 
+    letter-spacing: -0.01em; 
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .hero-desc { 
+    font-family: var(--font-body, "Questrial", sans-serif);
+    font-size: clamp(1.125rem, 3vw, 1.35rem); 
+    font-weight: 300; 
+    max-width: 700px; 
+    margin: 0 auto 3rem; 
+    line-height: 1.6; 
+    opacity: 0.9; 
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
   
   .btn-primary-magnetic {
-      display: inline-flex; align-items: center; justify-content: center; padding: 1.25rem 2.5rem;
-      background: var(--gold, #C5A059); color: var(--text-charcoal, #1A1A1A); text-decoration: none; font-size: 1.125rem;
-      font-weight: 600; border-radius: 999px; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
-      box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+      position: relative;
+      display: inline-flex; align-items: center; justify-content: center; padding: 1.1rem 2.5rem;
+      background: rgba(197, 160, 89, 0.1); 
+      color: #F9F6F0; 
+      text-decoration: none; 
+      font-size: 1.125rem;
+      font-weight: 300; 
+      letter-spacing: 0.05em;
+      border-radius: 999px; 
+      border: 1px solid rgba(197, 160, 89, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
   }
-  .btn-primary-magnetic:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 15px 40px rgba(197, 160, 89, 0.5); }
+  
+  .btn-primary-magnetic::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold, #C5A059);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+  }
+
+  .btn-primary-magnetic:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 15px 40px rgba(197, 160, 89, 0.3);
+    color: #1A1A1A;
+    border-color: var(--gold, #C5A059);
+  }
+  
+  .btn-primary-magnetic:hover::before {
+      opacity: 1;
+  }
+
   @media (max-width: 768px) {
       .hero-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   }

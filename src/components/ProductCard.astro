@@ -92,22 +92,28 @@ const { image, alt, category, name, price, tag } = Astro.props;
     align-items: center;
     gap: 0.5rem;
     padding: 0.625rem 1.25rem;
-    background: var(--matte-black);
-    color: var(--surface);
-    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--fg, #1A1A1A);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 999px;
     font-family: var(--font-body);
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transform: translateY(16px);
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   }
   .product-card:hover .add-to-cart {
     transform: translateY(0);
   }
   .add-to-cart:hover {
-    background: var(--accent-deep);
+    background: var(--surface);
+    color: var(--accent-deep);
+    border-color: var(--accent);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.2);
   }
   .add-to-cart .material-symbols-outlined {
     font-size: 18px;
