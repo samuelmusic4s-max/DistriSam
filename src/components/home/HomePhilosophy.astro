@@ -4,30 +4,134 @@ import imgPhilosophy from '../../assets/products/08-crema-acido-hialuronico.jpg'
 ---
 <section class="split-philosophy container">
     <div class="split-content" data-reveal="blur-up">
+        <span class="section-subtitle">Nuestra Esencia</span>
         <h2>De corazón a corazón</h2>
-        <p>No somos solo una tienda virtual; somos mujeres entendiendo las necesidades de otras mujeres. Queremos ser el refugio donde encuentras tu luz.</p>
-        <ul class="philosophy-list">
-            <li><span class="material-symbols-outlined">spa</span> <strong>El abrazo a tu piel:</strong> Fórmulas que sanan, hidratan y protegen tu rostro.</li>
-            <li><span class="material-symbols-outlined">brush</span> <strong>Los colores de tu alma:</strong> Maquillaje vibrante para expresar tu luz al mundo.</li>
-            <li><span class="material-symbols-outlined">styler</span> <strong>Amor propio en cada hilo:</strong> Lencería íntima para enamorarte de tu propio cuerpo.</li>
-            <li><span class="material-symbols-outlined">inventory_2</span> <strong>A tu medida:</strong> Disponible por unidad o al por mayor, según lo necesites.</li>
-        </ul>
+        <p class="lead-text">No somos solo una tienda virtual; somos mujeres entendiendo las necesidades de otras mujeres. Queremos ser el refugio donde encuentras tu luz.</p>
+        
+        <div class="philosophy-grid">
+            <div class="philosophy-item">
+                <div class="icon-box"><span class="material-symbols-outlined">spa</span></div>
+                <div class="text-box">
+                    <strong>El abrazo a tu piel</strong>
+                    <span>Fórmulas que sanan, hidratan y protegen tu rostro.</span>
+                </div>
+            </div>
+            <div class="philosophy-item">
+                <div class="icon-box"><span class="material-symbols-outlined">brush</span></div>
+                <div class="text-box">
+                    <strong>Los colores de tu alma</strong>
+                    <span>Maquillaje vibrante para expresar tu luz al mundo.</span>
+                </div>
+            </div>
+            <div class="philosophy-item">
+                <div class="icon-box"><span class="material-symbols-outlined">styler</span></div>
+                <div class="text-box">
+                    <strong>Amor propio en cada hilo</strong>
+                    <span>Lencería íntima para enamorarte de tu propio cuerpo.</span>
+                </div>
+            </div>
+            <div class="philosophy-item">
+                <div class="icon-box"><span class="material-symbols-outlined">inventory_2</span></div>
+                <div class="text-box">
+                    <strong>A tu medida</strong>
+                    <span>Disponible por unidad o al por mayor, según lo necesites.</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="split-image-wrapper" data-reveal="blur-up">
-        <Image src={imgPhilosophy} alt="Filosofía" class="split-image" />
+    
+    <div class="split-image-container" data-reveal="blur-up">
+        <div class="image-decoration"></div>
+        <div class="split-image-wrapper">
+            <Image src={imgPhilosophy} alt="Filosofía" class="split-image" />
+        </div>
     </div>
 </section>
 <style>
-  .split-philosophy { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: 6rem 0; }
-  .split-content h2 { font-size: clamp(2rem, 4vw, 2.75rem); font-family: var(--font-display, serif); font-weight: 500; margin-bottom: 1.5rem; color: var(--fg, #1a1a1a); letter-spacing: -0.01em; }
-  .split-content > p { font-size: 1.125rem; color: var(--muted, #555); margin-bottom: 2rem; line-height: 1.8; }
-  .philosophy-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
-  .philosophy-list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 1rem; color: var(--fg, #1a1a1a); line-height: 1.6; }
-  .philosophy-list .material-symbols-outlined { color: var(--accent-deep, #775a19); font-size: 24px; flex-shrink: 0; }
-  .split-image-wrapper { position: relative; border-radius: 1rem; overflow: hidden; height: 600px; }
-  .split-image { width: 100%; height: 100%; object-fit: cover; }
+  .split-philosophy { 
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 6rem; align-items: center; 
+      padding: 8rem 0; 
+  }
+  
+  .section-subtitle {
+      display: inline-block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; 
+      color: var(--accent-deep, #775a19); font-weight: 600; margin-bottom: 1rem;
+  }
+  
+  .split-content h2 { 
+      font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: var(--font-display, serif); 
+      font-weight: 500; margin-bottom: 1.5rem; color: var(--fg, #1a1a1a); 
+      letter-spacing: -0.01em; line-height: 1.1;
+  }
+  
+  .lead-text { 
+      font-size: 1.15rem; color: var(--muted, #555); margin-bottom: 3rem; 
+      line-height: 1.8; max-width: 540px; font-weight: 300;
+  }
+  
+  .philosophy-grid { 
+      display: grid; grid-template-columns: 1fr; gap: 2rem; 
+  }
+  
+  .philosophy-item { 
+      display: flex; align-items: flex-start; gap: 1.25rem; 
+      padding-bottom: 1.5rem; border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+  }
+  
+  .philosophy-item:last-child { border-bottom: none; padding-bottom: 0; }
+  
+  .icon-box { 
+      display: flex; align-items: center; justify-content: center; 
+      width: 48px; height: 48px; border-radius: 50%; 
+      background: var(--cream, #fcf9f7); color: var(--accent-deep, #775a19); 
+      flex-shrink: 0; border: 1px solid rgba(197, 160, 89, 0.2);
+      transition: all 0.4s ease;
+  }
+  
+  .philosophy-item:hover .icon-box {
+      background: var(--accent-deep, #775a19); color: #fff; transform: scale(1.05);
+  }
+  
+  .text-box { display: flex; flex-direction: column; gap: 0.35rem; }
+  
+  .text-box strong { 
+      font-family: var(--font-display, serif); font-size: 1.25rem; 
+      color: var(--fg, #1a1a1a); font-weight: 600; 
+  }
+  
+  .text-box span { 
+      font-size: 1rem; color: var(--muted, #555); line-height: 1.6; font-weight: 300; 
+  }
+  
+  .split-image-container { position: relative; padding: 2rem; }
+  
+  .image-decoration {
+      position: absolute; inset: 0; border: 1px solid var(--accent, #c5a059);
+      border-radius: 15rem 15rem 2rem 2rem; transform: translate(-1.5rem, -1.5rem);
+      z-index: 0; opacity: 0.6; transition: transform 0.5s ease;
+  }
+  
+  .split-image-container:hover .image-decoration {
+      transform: translate(-0.5rem, -0.5rem);
+  }
+
+  .split-image-wrapper { 
+      position: relative; border-radius: 15rem 15rem 2rem 2rem; overflow: hidden; 
+      height: 650px; z-index: 1; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  }
+  
+  .split-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+  .split-image-wrapper:hover .split-image { transform: scale(1.03); }
+  
   @media (max-width: 1024px) {
-      .split-philosophy { grid-template-columns: 1fr; gap: 3rem; text-align: left; }
-      .split-image-wrapper { height: 400px; }
+      .split-philosophy { grid-template-columns: 1fr; gap: 4rem; text-align: left; padding: 5rem 0; }
+      .image-decoration { border-radius: 12rem 12rem 2rem 2rem; }
+      .split-image-wrapper { height: 500px; border-radius: 12rem 12rem 2rem 2rem; }
+  }
+  
+  @media (max-width: 768px) {
+      .split-content h2 { font-size: clamp(2.2rem, 8vw, 2.8rem); }
+      .split-image-wrapper { height: 400px; border-radius: 10rem 10rem 1.5rem 1.5rem; }
+      .image-decoration { border-radius: 10rem 10rem 1.5rem 1.5rem; }
   }
 </style>

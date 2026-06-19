@@ -12,8 +12,8 @@ const {activePage} = Astro.props;
         </a>
         <ul class="nav-links">
             <li><a href="/main" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
-            <li><a href="#solucion">La Solución</a></li>
-            <li><a href="#rutina">Rutina Recomendada</a></li>
+            <li><a href="/main#solucion">La Solución</a></li>
+            <li><a href="/main#rutina">Rutina Recomendada</a></li>
             <li><a href="/catalogo" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo</a></li>
             <li><a href="/quienes-somos">Quiénes Somos</a></li>
             <li><a href="/contacto">Contacto</a></li>
@@ -21,12 +21,58 @@ const {activePage} = Astro.props;
         <div class="nav-actions">
             <button aria-label="Buscar"><span class="material-symbols-outlined">search</span></button>
             <button aria-label="Carrito"><span class="material-symbols-outlined">shopping_cart</span></button>
-            <button class="nav-toggle" aria-label="Menú"><span class="material-symbols-outlined">menu</span></button>
+            <button class="nav-toggle" id="menu-toggle" aria-label="Menú"><span class="material-symbols-outlined">menu</span></button>
         </div>
     </div>
 </nav>
 
-<style>
+<!-- Overlay Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+        <div class="mobile-menu-header">
+            <span class="nav-logo">DistriSam</span>
+            <button class="nav-toggle-close" id="menu-close" aria-label="Cerrar Menú">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="/main" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
+            <li><a href="/main#solucion">La Solución</a></li>
+            <li><a href="/main#rutina">Rutina Recomendada</a></li>
+            <li><a href="/catalogo" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo</a></li>
+            <li><a href="/quienes-somos">Quiénes Somos</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+        if (menuToggle && menuClose && mobileMenu) {
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('is-open');
+                document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+            };
+
+            menuToggle.addEventListener('click', toggleMenu);
+            menuClose.addEventListener('click', toggleMenu);
+            
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    });
+</script>
+
+<style is:global>
     .nav-modelo {
         position: sticky;
         top: 0;
@@ -61,7 +107,7 @@ const {activePage} = Astro.props;
     }
     .nav-links {
         display: flex;
-        gap: 0.5rem; /* Separación entre píldoras */
+        gap: 0.5rem;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -78,12 +124,11 @@ const {activePage} = Astro.props;
         letter-spacing: 0.05em;
     }
     
-    /* Efecto Kiro (Pill Hover / Clarificación del fondo) */
     .nav-links a:hover,
     .nav-links a.active {
-        background-color: #1A1A1A; /* Carbón suave de fondo */
-        color: #F9F6F0; /* Texto claro */
-        transform: translateY(-2px); /* Pequeña elevación física */
+        background-color: #1A1A1A;
+        color: #F9F6F0;
+        transform: translateY(-2px);
     }
     
     .nav-actions {
@@ -99,6 +144,8 @@ const {activePage} = Astro.props;
         font-size: 24px;
         transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
         padding: 0;
+        display: flex;
+        align-items: center;
     }
     .nav-actions button:hover {
         transform: scale(1.15) translateY(-2px);
@@ -106,7 +153,101 @@ const {activePage} = Astro.props;
     }
     .nav-toggle { display: none; }
     
-    @media (max-width: 768px) {
+    /* Mobile Menu Styles */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(249, 246, 240, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .mobile-menu.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    .mobile-menu-inner {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+    }
+    
+    .nav-toggle-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #1A1A1A;
+        font-size: 28px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-toggle-close:hover {
+        transform: rotate(90deg);
+        color: #C5A059;
+    }
+
+    .mobile-nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .mobile-nav-links a {
+        font-family: 'Outfit', sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: #1A1A1A;
+        text-decoration: none;
+        display: inline-block;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s, color 0.3s;
+    }
+    
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+        color: #C5A059;
+    }
+    
+    .mobile-menu.is-open .mobile-nav-links a {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+    /* Animación en cascada (stagger) para los enlaces del móvil */
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(1) a { transition-delay: 0.1s; }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(2) a { transition-delay: 0.15s; }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(3) a { transition-delay: 0.2s; }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(4) a { transition-delay: 0.25s; }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(5) a { transition-delay: 0.3s; }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(6) a { transition-delay: 0.35s; }
+    
+    @media (max-width: 1024px) {
         .nav-links { display: none; }
         .nav-toggle { display: block; }
     }
