@@ -1,28 +1,166 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FooterModelo from '../components/FooterModelo.astro';
-import HomeHero from '../components/home/HomeHero.astro';
-import HomePainPoint from '../components/home/HomePainPoint.astro';
-import HomeSolution from '../components/home/HomeSolution.astro';
-import HomePhilosophy from '../components/home/HomePhilosophy.astro';
-import HomeCollections from '../components/home/HomeCollections.astro';
-import HomeBenefits from '../components/home/HomeBenefits.astro';
-import HomeFinalCta from '../components/home/HomeFinalCta.astro';
-import HomeFaq from '../components/home/HomeFaq.astro';
-import HomeTrustStrip from '../components/home/HomeTrustStrip.astro';
+import ProfileHeader from '../components/ProfileHeader.astro';
+import LinkCard from '../components/LinkCard.astro';
+import SocialIcons from '../components/SocialIcons.astro';
+import { STORE_SVG, GRID_SVG, WA_SVG, IG_SVG, FB_SVG, TIKTOK_SVG } from '../components/Icons';
+
+const profile = {
+  avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuA9VUTk75ccZhK7N4akskvaabcQjt3bdyzEPglxlYlkUQJ2WUtRoY-sof2GcuD0B_yIydz208wWYqyOXpyKNWRWO5ZEJaRTkfKnhPyFFoqLpTDGoOMq4UTyH8vC0MK9s-otAkUkDAuuzTPMPh1bgaq9ye2YQVyqj5l6O13QSfQs1sVWJXgAEYWK5EqidhLwcud3uE0iAoHAgTdPfN0hjfahZA-56Xlu-WL6pPkL5aZduMUUVsMB6BFXRObEZcpmXD-aeo0S0RfzywQ",
+  name: "DistriSam Make Up",
+  handle: "@distrisam.makeup",
+  bio: "Productos originales Constancia y Disciplina ✨ Envíos a toda Colombia 🇨🇴"
+};
+
+const links = [
+  {
+    title: "WhatsApp — Pedidos",
+    subtitle: "Escríbenos directamente",
+    svgIcon: WA_SVG,
+    href: "https://wa.me/message/3ZZGD6HBSNQFA1",
+    featured: true,
+    external: true,
+    hoverColor: "#55efc4"
+  },
+  {
+    title: "Tienda Online",
+    subtitle: "Compra nuestros productos",
+    svgIcon: STORE_SVG,
+    href: "/main",
+    featured: false,
+    external: false,
+    hoverColor: "var(--accent-deep)"
+  },
+  {
+    title: "Ver Catálogo",
+    subtitle: "Explora toda nuestra línea",
+    svgIcon: GRID_SVG,
+    href: "/catalogo",
+    featured: false,
+    external: false,
+    hoverColor: "var(--accent-deep)"
+  },
+  {
+    title: "TikTok",
+    subtitle: "@maquillajedistrisam",
+    svgIcon: TIKTOK_SVG,
+    href: "https://www.tiktok.com/@maquillajedistrisam",
+    featured: false,
+    external: true,
+    hoverColor: "#2f3640"
+  },
+  {
+    title: "Instagram",
+    subtitle: "@maquillajedistrisam",
+    svgIcon: IG_SVG,
+    href: "https://www.instagram.com/maquillajedistrisam",
+    featured: false,
+    external: true,
+    hoverColor: "#fd79a8"
+  },
+  {
+    title: "Facebook",
+    subtitle: "Síguenos en Facebook",
+    svgIcon: FB_SVG,
+    href: "https://www.facebook.com/share/18yUY3M6Hx/",
+    featured: false,
+    external: true,
+    hoverColor: "#74b9ff"
+  }
+];
+
+const socials = [
+  { svgIcon: STORE_SVG, href: "/main", label: "Tienda Online", hoverColor: "var(--accent)" },
+  { svgIcon: IG_SVG, href: "https://www.instagram.com/maquillajedistrisam", label: "Instagram", hoverColor: "#fd79a8" },
+  { svgIcon: TIKTOK_SVG, href: "https://www.tiktok.com/@maquillajedistrisam", label: "TikTok", hoverColor: "#2f3640" },
+  { svgIcon: WA_SVG, href: "https://wa.me/message/3ZZGD6HBSNQFA1", label: "WhatsApp", hoverColor: "#55efc4" },
+  { svgIcon: FB_SVG, href: "https://www.facebook.com/share/18yUY3M6Hx/", label: "Facebook", hoverColor: "#74b9ff" }
+];
 ---
 
-<Layout title="Inicio — DistriSam Make Up" activePage="inicio">
-    <main>
-        <HomeHero />
-        <HomePainPoint />
-        <HomeSolution />
-        <HomePhilosophy />
-        <HomeCollections />
-        <HomeBenefits />
-        <HomeFinalCta />
-        <HomeFaq />
-        <HomeTrustStrip />
-    </main>
-    <FooterModelo />
+<Layout title="DistriSam Make Up — Links" description="Productos originales. Constancia y Disciplina. Envíos a toda Colombia. Contacto y enlaces de interés.">
+  <div class="link-bio-container">
+    <div class="glow-bg" aria-hidden="true"></div>
+
+    <ProfileHeader {...profile} />
+
+    <div class="links-wrapper">
+      {links.map((link, i) => (
+        <LinkCard {...link} index={i} />
+      ))}
+    </div>
+
+    <SocialIcons items={socials} />
+
+    <footer class="link-bio-footer">
+      <p class="brand">DistriSam Make Up</p>
+      <p class="slogan">Constancia y Disciplina</p>
+    </footer>
+  </div>
 </Layout>
+
+<style>
+  .link-bio-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .glow-bg {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(229, 193, 133, 0.28) 0%, rgba(229, 193, 133, 0) 65%);
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(10px);
+  }
+
+  .links-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .link-bio-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    text-align: center;
+    animation: footer-fade-in 900ms ease-out 2s both;
+  }
+  .link-bio-footer .brand {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.01em;
+  }
+  .link-bio-footer .slogan {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  @keyframes footer-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .link-bio-footer { animation: none; }
+  }
+</style>
