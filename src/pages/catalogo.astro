@@ -5,21 +5,36 @@ import ProductCard from '../components/ProductCard.astro';
 import Newsletter from '../components/Newsletter.astro';
 import PageHeader from '../components/PageHeader.astro';
 
+import p01 from '../assets/products/01-kit-bioaqua-vitamina-c.jpg';
+import p02 from '../assets/products/02-kit-bioaqua-aguacate.jpg';
+import p03 from '../assets/products/03-kit-bioaqua-camelia.jpg';
+import p04 from '../assets/products/04-crema-vitamina-c.jpg';
+import p05 from '../assets/products/05-tonico-ceramidas.jpg';
+import p06 from '../assets/products/06-crema-rose.jpg';
+import p07 from '../assets/products/07-crema-centella.jpg';
+import p08 from '../assets/products/08-crema-acido-hialuronico.jpg';
+import p09 from '../assets/products/09-crema-arroz.jpg';
+import p10 from '../assets/products/10-serum-arroz.jpg';
+import p11 from '../assets/products/11-exfoliante-arroz.jpg';
+import p12 from '../assets/products/12-tonico-arroz.jpg';
+import p13 from '../assets/products/13-protector-solar.jpg';
+import p14 from '../assets/products/14-protector-ojeras.jpg';
+
 const products = [
-  { image: "/products/01-kit-bioaqua-vitamina-c.jpg",     alt: "Kit Bioaqua Vitamina C con Ácido Hialurónico",                 category: "Skincare Preparación", name: "Kit Bioaqua Vitamina C con Ácido Hialurónico", price: "$37.900 COP", tag: "Bestseller" },
-  { image: "/products/02-kit-bioaqua-aguacate.jpg",       alt: "Kit Bioaqua Aguacate",                                         category: "Skincare Preparación", name: "Kit Bioaqua Aguacate",                            price: "$37.900 COP" },
-  { image: "/products/03-kit-bioaqua-camelia.jpg",        alt: "Kit Bioaqua Camelia",                                          category: "Skincare Preparación", name: "Kit Bioaqua Camelia",                             price: "$37.900 COP" },
-  { image: "/products/04-crema-vitamina-c.jpg",           alt: "Crema Facial Vitamina C con Ácido Hialurónico BQY18922",      category: "Skincare Preparación", name: "Crema Facial Vitamina C con Ácido Hialurónico BQY18922", price: "$14.900 COP", tag: "Nuevo" },
-  { image: "/products/05-tonico-ceramidas.jpg",           alt: "Tónico de Ceramidas y Ácido Hialurónico",                      category: "Skincare Preparación", name: "Tónico de Ceramidas y Ácido Hialurónico",         price: "$12.900 COP" },
-  { image: "/products/06-crema-rose.jpg",                 alt: "Crema Facial Rose Ref BQY42613",                               category: "Skincare Preparación", name: "Crema Facial Rose Ref BQY42613",                  price: "$14.000 COP" },
-  { image: "/products/07-crema-centella.jpg",             alt: "Crema Facial Centella Ref BQY12050",                           category: "Skincare Preparación", name: "Crema Facial Centella Ref BQY12050",              price: "$14.500 COP" },
-  { image: "/products/08-crema-acido-hialuronico.jpg",    alt: "Crema Facial Ácido Hialurónico Ref 18861",                     category: "Skincare Preparación", name: "Crema Facial Ácido Hialurónico Ref 18861",        price: "$14.500 COP" },
-  { image: "/products/09-crema-arroz.jpg",                alt: "Crema Facial Arroz Bioaqua Ref BQY56303",                      category: "Skincare Preparación", name: "Crema Facial Arroz Bioaqua Ref BQY56303",         price: "$14.500 COP" },
-  { image: "/products/10-serum-arroz.jpg",                alt: "Serum Arroz Bioaqua Ref BQY80535",                             category: "Skincare Preparación", name: "Serum Arroz Bioaqua Ref BQY80535",                price: "$11.500 COP" },
-  { image: "/products/11-exfoliante-arroz.jpg",           alt: "Exfoliante Facial Arroz Bioaqua Ref BQY7519",                  category: "Skincare Preparación", name: "Exfoliante Facial Arroz Bioaqua Ref BQY7519",     price: "$14.500 COP" },
-  { image: "/products/12-tonico-arroz.jpg",               alt: "Tónico Facial Arroz Bioaqua Ref BQY41005",                      category: "Skincare Preparación", name: "Tónico Facial Arroz Bioaqua Ref BQY41005",         price: "$14.000 COP" },
-  { image: "/products/13-protector-solar.jpg",            alt: "Protector Solar Ref No. SD55856",                              category: "Skincare Preparación", name: "Protector Solar Ref No. SD55856",                 price: "$11.500 COP" },
-  { image: "/products/14-protector-ojeras.jpg",           alt: "Protector de Ojeras Bioaqua Ref BQY90423",                     category: "Skincare Preparación", name: "Protector de Ojeras Bioaqua Ref BQY90423",        price: "$14.900 COP" },
+  { image: p01, alt: "Kit Bioaqua Vitamina C con Ácido Hialurónico",                 category: "Skincare Preparación", name: "Kit Bioaqua Vitamina C con Ácido Hialurónico", price: "$37.900 COP", tag: "Bestseller" },
+  { image: p02, alt: "Kit Bioaqua Aguacate",                                         category: "Skincare Preparación", name: "Kit Bioaqua Aguacate",                            price: "$37.900 COP" },
+  { image: p03, alt: "Kit Bioaqua Camelia",                                          category: "Skincare Preparación", name: "Kit Bioaqua Camelia",                             price: "$37.900 COP" },
+  { image: p04, alt: "Crema Facial Vitamina C con Ácido Hialurónico BQY18922",      category: "Skincare Preparación", name: "Crema Facial Vitamina C con Ácido Hialurónico BQY18922", price: "$14.900 COP", tag: "Nuevo" },
+  { image: p05, alt: "Tónico de Ceramidas y Ácido Hialurónico",                      category: "Skincare Preparación", name: "Tónico de Ceramidas y Ácido Hialurónico",         price: "$12.900 COP" },
+  { image: p06, alt: "Crema Facial Rose Ref BQY42613",                               category: "Skincare Preparación", name: "Crema Facial Rose Ref BQY42613",                  price: "$14.000 COP" },
+  { image: p07, alt: "Crema Facial Centella Ref BQY12050",                           category: "Skincare Preparación", name: "Crema Facial Centella Ref BQY12050",              price: "$14.500 COP" },
+  { image: p08, alt: "Crema Facial Ácido Hialurónico Ref 18861",                     category: "Skincare Preparación", name: "Crema Facial Ácido Hialurónico Ref 18861",        price: "$14.500 COP" },
+  { image: p09, alt: "Crema Facial Arroz Bioaqua Ref BQY56303",                      category: "Skincare Preparación", name: "Crema Facial Arroz Bioaqua Ref BQY56303",         price: "$14.500 COP" },
+  { image: p10, alt: "Serum Arroz Bioaqua Ref BQY80535",                             category: "Skincare Preparación", name: "Serum Arroz Bioaqua Ref BQY80535",                price: "$11.500 COP" },
+  { image: p11, alt: "Exfoliante Facial Arroz Bioaqua Ref BQY7519",                  category: "Skincare Preparación", name: "Exfoliante Facial Arroz Bioaqua Ref BQY7519",     price: "$14.500 COP" },
+  { image: p12, alt: "Tónico Facial Arroz Bioaqua Ref BQY41005",                      category: "Skincare Preparación", name: "Tónico Facial Arroz Bioaqua Ref BQY41005",         price: "$14.000 COP" },
+  { image: p13, alt: "Protector Solar Ref No. SD55856",                              category: "Skincare Preparación", name: "Protector Solar Ref No. SD55856",                 price: "$11.500 COP" },
+  { image: p14, alt: "Protector de Ojeras Bioaqua Ref BQY90423",                     category: "Skincare Preparación", name: "Protector de Ojeras Bioaqua Ref BQY90423",        price: "$14.900 COP" },
 ];
 
 const categories = [
