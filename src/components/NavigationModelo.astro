@@ -1,4 +1,6 @@
 ---
+import Logo from './Logo.astro';
+
 interface Props {
     activePage?: string;
 }
@@ -7,8 +9,9 @@ const {activePage} = Astro.props;
 ---
 <nav class="nav-modelo">
     <div class="container nav-inner">
-        <a href="/main" class="nav-logo">
-            <span> DistriSam </span>
+        <a href="/main" class="nav-logo" aria-label="Ir al inicio">
+            <Logo size="sm" />
+            <span class="nav-brand-text">DistriSam</span>
         </a>
         <ul class="nav-links">
             <li><a href="/main" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
