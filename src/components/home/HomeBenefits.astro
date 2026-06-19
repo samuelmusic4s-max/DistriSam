@@ -1,0 +1,42 @@
+---
+---
+<section class="benefits-section">
+    <div class="container">
+        <div class="section-header" data-reveal="blur-up">
+            <span class="section-subtitle">Por qué elegirnos</span>
+            <h2 class="section-title">Nuestra promesa contigo</h2>
+        </div>
+        <div class="benefits-grid" data-stagger>
+            <div class="benefit-card">
+                <span class="material-symbols-outlined benefit-icon">health_and_safety</span>
+                <h3>Piel Segura</h3>
+                <p>Evita riesgos. Distribuimos productos con registro sanitario y estándares internacionales, alejándote de falsificaciones peligrosas.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="material-symbols-outlined benefit-icon">savings</span>
+                <h3>Inversión Inteligente</h3>
+                <p>No pagues por marcas infladas por marketing. Traemos opciones de alto rendimiento a precios justos y competitivos.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="material-symbols-outlined benefit-icon">auto_awesome</span>
+                <h3>Resultados Reales</h3>
+                <p>Nuestra selección se basa en evidencia y tendencias probadas en la industria del cuidado personal.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+  .benefits-section { background: #FFFFFF; padding: 6rem 0; border-top: 1px solid var(--border, #eee); border-bottom: 1px solid var(--border, #eee); }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-subtitle { display: inline-block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-deep, #775a19); font-weight: 600; margin-bottom: 0.75rem; }
+  .section-title { font-size: clamp(2rem, 4vw, 2.75rem); font-family: var(--font-display, serif); font-weight: 500; color: var(--fg, #1a1a1a); margin-bottom: 1rem; letter-spacing: -0.01em; }
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+  .benefit-card { background: var(--cream, #fcf9f7); padding: 3rem 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s; border: 1px solid var(--border, #eee); }
+  .benefit-card:hover { transform: translateY(-5px); border-color: var(--accent, #c5a059); }
+  .benefit-icon { font-size: 40px; color: var(--accent-deep, #775a19); margin-bottom: 1.5rem; }
+  .benefit-card h3 { font-family: var(--font-display, serif); font-size: 1.25rem; color: var(--fg, #1a1a1a); margin-bottom: 1rem; font-weight: 600; }
+  .benefit-card p { color: var(--muted, #555); font-size: 1.1rem; line-height: 1.7; }
+  @media (max-width: 1024px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+  }
+</style>

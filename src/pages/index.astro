@@ -1,485 +1,166 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Logo from '../components/Logo.astro';
-import ProductCard from '../components/ProductCard.astro';
-import { Image } from 'astro:assets';
+import ProfileHeader from '../components/ProfileHeader.astro';
+import LinkCard from '../components/LinkCard.astro';
+import SocialIcons from '../components/SocialIcons.astro';
+import { STORE_SVG, GRID_SVG, WA_SVG, IG_SVG, FB_SVG, TIKTOK_SVG } from '../components/Icons';
 
-import imgVitC from '../assets/products/01-kit-bioaqua-vitamina-c.jpg';
-import imgHialuronico from '../assets/products/08-crema-acido-hialuronico.jpg';
-import imgAguacate from '../assets/products/02-kit-bioaqua-aguacate.jpg';
-import imgCeramidas from '../assets/products/05-tonico-ceramidas.jpg';
-import imgSolar from '../assets/products/13-protector-solar.jpg';
-import imgArroz from '../assets/products/10-serum-arroz.jpg';
+const profile = {
+  avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuA9VUTk75ccZhK7N4akskvaabcQjt3bdyzEPglxlYlkUQJ2WUtRoY-sof2GcuD0B_yIydz208wWYqyOXpyKNWRWO5ZEJaRTkfKnhPyFFoqLpTDGoOMq4UTyH8vC0MK9s-otAkUkDAuuzTPMPh1bgaq9ye2YQVyqj5l6O13QSfQs1sVWJXgAEYWK5EqidhLwcud3uE0iAoHAgTdPfN0hjfahZA-56Xlu-WL6pPkL5aZduMUUVsMB6BFXRObEZcpmXD-aeo0S0RfzywQ",
+  name: "DistriSam Make Up",
+  handle: "@distrisam.makeup",
+  bio: "Productos originales Constancia y Disciplina ✨ Envíos a toda Colombia 🇨🇴"
+};
+
+const links = [
+  {
+    title: "WhatsApp — Pedidos",
+    subtitle: "Escríbenos directamente",
+    svgIcon: WA_SVG,
+    href: "https://wa.me/message/3ZZGD6HBSNQFA1",
+    featured: true,
+    external: true,
+    hoverColor: "#55efc4"
+  },
+  {
+    title: "Tienda Online",
+    subtitle: "Compra nuestros productos",
+    svgIcon: STORE_SVG,
+    href: "/main",
+    featured: false,
+    external: false,
+    hoverColor: "var(--accent-deep)"
+  },
+  {
+    title: "Ver Catálogo",
+    subtitle: "Explora toda nuestra línea",
+    svgIcon: GRID_SVG,
+    href: "/catalogo",
+    featured: false,
+    external: false,
+    hoverColor: "var(--accent-deep)"
+  },
+  {
+    title: "TikTok",
+    subtitle: "@maquillajedistrisam",
+    svgIcon: TIKTOK_SVG,
+    href: "https://www.tiktok.com/@maquillajedistrisam",
+    featured: false,
+    external: true,
+    hoverColor: "#2f3640"
+  },
+  {
+    title: "Instagram",
+    subtitle: "@maquillajedistrisam",
+    svgIcon: IG_SVG,
+    href: "https://www.instagram.com/maquillajedistrisam",
+    featured: false,
+    external: true,
+    hoverColor: "#fd79a8"
+  },
+  {
+    title: "Facebook",
+    subtitle: "Síguenos en Facebook",
+    svgIcon: FB_SVG,
+    href: "https://www.facebook.com/share/18yUY3M6Hx/",
+    featured: false,
+    external: true,
+    hoverColor: "#74b9ff"
+  }
+];
+
+const socials = [
+  { svgIcon: STORE_SVG, href: "/main", label: "Tienda Online", hoverColor: "var(--accent)" },
+  { svgIcon: IG_SVG, href: "https://www.instagram.com/maquillajedistrisam", label: "Instagram", hoverColor: "#fd79a8" },
+  { svgIcon: TIKTOK_SVG, href: "https://www.tiktok.com/@maquillajedistrisam", label: "TikTok", hoverColor: "#2f3640" },
+  { svgIcon: WA_SVG, href: "https://wa.me/message/3ZZGD6HBSNQFA1", label: "WhatsApp", hoverColor: "#55efc4" },
+  { svgIcon: FB_SVG, href: "https://www.facebook.com/share/18yUY3M6Hx/", label: "Facebook", hoverColor: "#74b9ff" }
+];
 ---
 
-<Layout title="Inicio — DistriSam Make Up" activePage="inicio">
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="hero-content" data-reveal>
-          <div class="hero-logo-wrap">
-            <Logo size="lg" ring badge />
-          </div>
-          <h1>Realza tu <em>belleza natural</em> con nuestra colección exclusiva.</h1>
-          <p>Constancia y disciplina en cada detalle. Descubre el arte del maquillaje profesional con productos seleccionados para un acabado impecable y duradero.</p>
-          <div class="hero-ctas">
-            <a href="/catalogo" class="btn-primary">Explorar Catálogo</a>
-            <a href="/catalogo" class="btn-secondary">Novedades</a>
-          </div>
-        </div>
-      </section>
+<Layout title="DistriSam Make Up — Links" description="Productos originales. Constancia y Disciplina. Envíos a toda Colombia. Contacto y enlaces de interés.">
+  <div class="link-bio-container">
+    <div class="glow-bg" aria-hidden="true"></div>
 
-      <!-- Novedades Section (Bento Grid) -->
-      <section class="section" data-reveal>
-        <div class="container">
-          <p class="section-label">Tendencias</p>
-          <h2 class="section-title">Novedades Exclusivas</h2>
-          <div class="section-divider"></div>
+    <ProfileHeader {...profile} />
 
-          <div class="bento-grid" data-stagger>
-            <div class="bento-large">
-              <Image src={imgVitC} alt="Kit Bioaqua Vitamina C" width={800} height={600} />
-              <div class="overlay"></div>
-              <div class="content">
-                <span class="tag">Colección Exclusiva</span>
-                <h3>Kit Bioaqua Vitamina C</h3>
-                <p>Ilumina y revitaliza tu piel con nuestro kit completo de Vitamina C. Especial para manchas y luminosidad natural.</p>
-                <a href="/catalogo" class="link">
-                  Descubrir
-                  <span class="material-symbols-outlined">arrow_forward</span>
-                </a>
-              </div>
-            </div>
+    <div class="links-wrapper">
+      {links.map((link, i) => (
+        <LinkCard {...link} index={i} />
+      ))}
+    </div>
 
-            <div class="bento-stack">
-              <div class="bento-small">
-                <Image src={imgHialuronico} alt="Crema Ácido Hialurónico" width={400} height={300} />
-                <div class="overlay"></div>
-                <div class="content">
-                  <h3>Crema Ácido Hialurónico</h3>
-                  <a href="/catalogo" class="link">
-                    Ver detalles
-                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
-                  </a>
-                </div>
-              </div>
+    <SocialIcons items={socials} />
 
-              <div class="bento-text">
-                <span class="material-symbols-outlined icon">auto_awesome</span>
-                <h3>Preparación de Piel</h3>
-                <p>El secreto de un maquillaje duradero.</p>
-                <a href="/catalogo" class="link-text">Leer el blog</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <footer class="link-bio-footer">
+      <p class="brand">DistriSam Make Up</p>
+      <p class="slogan">Constancia y Disciplina</p>
+    </footer>
+  </div>
+</Layout>
 
-      <!-- Productos Destacados Section -->
-      <section id="productos" class="section" style="padding-top:0" data-reveal>
-        <div class="container productos-section">
-          <div class="productos-header">
-            <div>
-              <p class="section-label" style="text-align:left">Imprescindibles</p>
-              <h2 class="section-title" style="text-align:left;margin-bottom:0">Productos Destacados</h2>
-            </div>
-            <a href="/catalogo" class="ver-todo">Ver todo el catálogo</a>
-          </div>
+<style>
+  .link-bio-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
 
-          <div class="product-grid" data-stagger>
-            <ProductCard
-              image={imgAguacate}
-              alt="Kit Bioaqua Aguacate"
-              category="Kits de Cuidado"
-              name="Kit Bioaqua Aguacate"
-              price="$37.900 COP"
-              tag="Bestseller"
-            />
-            <ProductCard
-              image={imgCeramidas}
-              alt="Tónico Ceramidas"
-              category="Cuidado Facial"
-              name="Tónico de Ceramidas y Ácido Hialurónico"
-              price="$12.900 COP"
-              tag="Nuevo"
-            />
-            <ProductCard
-              image={imgSolar}
-              alt="Protector Solar"
-              category="Protección Solar"
-              name="Protector Solar Sadoer SPF 90+"
-              price="$11.500 COP"
-            />
-            <ProductCard
-              image={imgArroz}
-              alt="Serum Arroz"
-              category="Serums"
-              name="Serum Arroz Bioaqua"
-              price="$11.500 COP"
-            />
-          </div>
-        </div>
-      </section>
-    </Layout>
+  .glow-bg {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(229, 193, 133, 0.28) 0%, rgba(229, 193, 133, 0) 65%);
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(10px);
+  }
 
-    <script>
-      // Reveal on scroll
-      const reveals = document.querySelectorAll('[data-reveal]');
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-revealed');
-                io.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-        );
-        reveals.forEach((el) => io.observe(el));
-      } else {
-        reveals.forEach((el) => el.classList.add('is-revealed'));
-      }
+  .links-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2.5rem;
+  }
 
-      // Stagger distribution: assign --stagger index to each child
-      document.querySelectorAll('[data-stagger]').forEach((container) => {
-        const children = container.children;
-        for (let i = 0; i < children.length; i++) {
-          (children[i] as HTMLElement).style.setProperty('--stagger', String(i));
-        }
-        const stIO = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-revealed');
-                stIO.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
-        );
-        stIO.observe(container);
-      });
-    </script>
+  .link-bio-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    text-align: center;
+    animation: footer-fade-in 900ms ease-out 2s both;
+  }
+  .link-bio-footer .brand {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.01em;
+  }
+  .link-bio-footer .slogan {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
 
-    <style>
-      /* Hero */
-      .hero {
-        padding: 5rem 0;
-        text-align: center;
-        background: var(--cream);
-        position: relative;
-        overflow: hidden;
-      }
-      .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 40%;
-        height: 100%;
-        background: var(--soft-blush);
-        opacity: 0.4;
-        filter: blur(60px);
-        transform: skewX(-12deg) translateX(50%);
-      }
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-      }
-      .hero-logo-wrap {
-        text-align: center;
-        margin: 0 auto 2rem;
-      }
-      .hero h1 {
-        font-family: var(--font-display);
-        font-size: clamp(28px, 4vw, 48px);
-        font-weight: 700;
-        color: var(--fg);
-        letter-spacing: -0.02em;
-        margin-bottom: 1rem;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero h1 em {
-        color: var(--accent);
-        font-style: italic;
-      }
-      .hero p {
-        font-size: 18px;
-        color: var(--muted);
-        max-width: 600px;
-        margin: 0 auto 2rem;
-        line-height: 1.7;
-      }
-      .hero-ctas {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.875rem 2rem;
-        background: var(--matte-black);
-        color: var(--surface);
-        font-family: var(--font-body);
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        border-radius: 0.25rem;
-        transition: background 0.3s;
-      }
-      .btn-primary:hover { background: var(--accent-deep); }
-      .btn-secondary {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.875rem 2rem;
-        background: transparent;
-        color: var(--accent);
-        border: 1px solid var(--accent);
-        font-family: var(--font-body);
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        border-radius: 0.25rem;
-        transition: all 0.3s;
-      }
-      .btn-secondary:hover { background: var(--accent); color: var(--surface); }
+  @keyframes footer-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-      /* Common Sections */
-      .section { padding: 5rem 0; }
-      .section-label {
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--accent);
-        text-align: center;
-        margin-bottom: 0.5rem;
-      }
-      .section-title {
-        font-family: var(--font-display);
-        font-size: clamp(24px, 3vw, 32px);
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 0.75rem;
-      }
-      .section-divider {
-        width: 64px;
-        height: 1px;
-        background: var(--gold-shimmer);
-        margin: 0 auto 3rem;
-      }
-
-      /* Bento Grid */
-      .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 1.5rem;
-      }
-      .bento-large {
-        grid-column: span 12;
-        position: relative;
-        border-radius: 0.5rem;
-        overflow: hidden;
-        border: 1px solid var(--border);
-        background: var(--surface);
-        height: 400px;
-        cursor: pointer;
-      }
-      .bento-large img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s;
-      }
-      .bento-large:hover img { transform: scale(1.05); }
-      .bento-large .overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(26,26,26,0.7) 0%, transparent 60%);
-      }
-      .bento-large .content {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 2rem;
-        color: var(--surface);
-      }
-      .bento-large .tag {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        background: var(--bg);
-        color: var(--accent-deep);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        border-radius: 0.25rem;
-        margin-bottom: 0.75rem;
-      }
-      .bento-large h3 {
-        font-family: var(--font-display);
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-      .bento-large p {
-        font-size: 14px;
-        opacity: 0.85;
-        max-width: 400px;
-      }
-      .bento-large .link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 1rem;
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--surface);
-      }
-      .bento-large .link .material-symbols-outlined { font-size: 16px; transition: transform 0.2s; }
-      .bento-large .link:hover .material-symbols-outlined { transform: translateX(4px); }
-
-      .bento-stack {
-        grid-column: span 12;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      .bento-small {
-        position: relative;
-        height: 250px;
-        border-radius: 0.5rem;
-        overflow: hidden;
-        border: 1px solid var(--border);
-        background: var(--surface);
-        cursor: pointer;
-      }
-      .bento-small img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s;
-      }
-      .bento-small:hover img { transform: scale(1.05); }
-      .bento-small .overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(26,26,26,0.6) 0%, transparent 80%);
-      }
-      .bento-small .content {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 1.5rem;
-        color: var(--surface);
-      }
-      .bento-small h3 { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 0.25rem; }
-      .bento-small .link { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--surface); }
-
-      .bento-text {
-        height: 250px;
-        background: var(--soft-blush);
-        border-radius: 0.5rem;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border: 1px solid var(--border);
-        transition: background 0.5s ease;
-      }
-      .bento-text:hover { background: var(--cream); }
-      .bento-text .icon { font-size: 32px; color: var(--accent); margin-bottom: 0.5rem; }
-      .bento-text h3 { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 0.25rem; }
-      .bento-text p { font-size: 13px; color: var(--muted); margin-bottom: 1rem; }
-      .bento-text .link-text { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-deep); font-weight: 600; }
-
-      /* Product Grid */
-      .productos-section {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 0.75rem;
-        padding: 3rem 2rem;
-      }
-      .productos-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: 2.5rem;
-      }
-      .ver-todo {
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--accent-deep);
-        border-bottom: 1px solid var(--accent);
-        padding-bottom: 0.25rem;
-      }
-      .product-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
-
-      /* Reveal on scroll */
-      [data-reveal] {
-        opacity: 0;
-        transform: translateY(16px);
-        transition: opacity 700ms ease, transform 700ms ease;
-      }
-      [data-reveal].is-revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Stagger distribution */
-      [data-stagger] > * {
-        opacity: 0;
-        transform: translateY(12px);
-        transition: opacity 600ms ease, transform 600ms ease;
-        transition-delay: calc(var(--stagger, 0) * 90ms);
-      }
-      [data-stagger].is-revealed > * {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        [data-reveal],
-        [data-stagger] > * {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
-      }
-
-      /* Desktop layout overrides */
-      @media (min-width: 768px) {
-        .bento-grid {
-          grid-template-columns: repeat(12, 1fr);
-        }
-        .bento-large {
-          grid-column: span 8;
-          height: 400px;
-        }
-        .bento-stack {
-          grid-column: span 4;
-          height: 400px;
-        }
-        .product-grid {
-          grid-template-columns: repeat(4, 1fr);
-        }
-      }
-    </style>
+  @media (prefers-reduced-motion: reduce) {
+    .link-bio-footer { animation: none; }
+  }
+</style>

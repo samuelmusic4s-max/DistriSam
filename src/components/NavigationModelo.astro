@@ -1,0 +1,115 @@
+---
+import Logo from './Logo.astro';
+
+interface Props {
+    activePage?: string;
+}
+
+const {activePage} = Astro.props;
+---
+<nav class="nav-modelo">
+    <div class="container nav-inner">
+        <a href="/main" class="nav-logo">
+            <Logo size={36} />
+            <span> DistriSam </span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/main" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
+            <li><a href="#solucion">La Solución</a></li>
+            <li><a href="#rutina">Rutina Recomendada</a></li>
+            <li><a href="/quienes-somos">Quiénes Somos</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button aria-label="Buscar"><span class="material-symbols-outlined">search</span></button>
+            <button aria-label="Carrito"><span class="material-symbols-outlined">shopping_cart</span></button>
+            <button class="nav-toggle" aria-label="Menú"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .nav-modelo {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        /* Fondo crema suave con blur (Eye care) */
+        background: rgba(249, 246, 240, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(26,26,26, 0.05);
+        padding: 1.25rem 0;
+    }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: 'Outfit', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #1A1A1A;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+    }
+    .nav-links {
+        display: flex;
+        gap: 0.5rem; /* Separación entre píldoras */
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-links a {
+        font-family: 'Outfit', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #666;
+        padding: 0.6rem 1.25rem;
+        border-radius: 99px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        text-decoration: none;
+        letter-spacing: 0.05em;
+    }
+    
+    /* Efecto Kiro (Pill Hover / Clarificación del fondo) */
+    .nav-links a:hover,
+    .nav-links a.active {
+        background-color: #1A1A1A; /* Carbón suave de fondo */
+        color: #F9F6F0; /* Texto claro */
+        transform: translateY(-2px); /* Pequeña elevación física */
+    }
+    
+    .nav-actions {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+    }
+    .nav-actions button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #1A1A1A;
+        font-size: 24px;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+        padding: 0;
+    }
+    .nav-actions button:hover {
+        transform: scale(1.15) translateY(-2px);
+        color: #C5A059;
+    }
+    .nav-toggle { display: none; }
+    
+    @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .nav-toggle { display: block; }
+    }
+</style>
