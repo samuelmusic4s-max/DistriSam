@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import imgPhilosophy from '../../assets/products/08-crema-acido-hialuronico.jpg'; 
+---
+<section class="split-philosophy container">
+    <div class="split-content" data-reveal="blur-up">
+        <h2>De corazón a corazón</h2>
+        <p>No somos solo una tienda virtual; somos mujeres entendiendo las necesidades de otras mujeres. Queremos ser el refugio donde encuentras tu luz.</p>
+        <ul class="philosophy-list">
+            <li><span class="material-symbols-outlined">spa</span> <strong>El abrazo a tu piel:</strong> Fórmulas que sanan, hidratan y protegen tu rostro.</li>
+            <li><span class="material-symbols-outlined">brush</span> <strong>Los colores de tu alma:</strong> Maquillaje vibrante para expresar tu luz al mundo.</li>
+            <li><span class="material-symbols-outlined">styler</span> <strong>Amor propio en cada hilo:</strong> Lencería íntima para enamorarte de tu propio cuerpo.</li>
+            <li><span class="material-symbols-outlined">inventory_2</span> <strong>A tu medida:</strong> Disponible por unidad o al por mayor, según lo necesites.</li>
+        </ul>
+    </div>
+    <div class="split-image-wrapper" data-reveal="blur-up">
+        <Image src={imgPhilosophy} alt="Filosofía" class="split-image" />
+    </div>
+</section>
+<style>
+  .split-philosophy { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: 6rem 0; }
+  .split-content h2 { font-size: clamp(2rem, 4vw, 2.75rem); font-family: var(--font-display, serif); font-weight: 500; margin-bottom: 1.5rem; color: var(--fg, #1a1a1a); letter-spacing: -0.01em; }
+  .split-content > p { font-size: 1.125rem; color: var(--muted, #555); margin-bottom: 2rem; line-height: 1.8; }
+  .philosophy-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+  .philosophy-list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 1rem; color: var(--fg, #1a1a1a); line-height: 1.6; }
+  .philosophy-list .material-symbols-outlined { color: var(--accent-deep, #775a19); font-size: 24px; flex-shrink: 0; }
+  .split-image-wrapper { position: relative; border-radius: 1rem; overflow: hidden; height: 600px; }
+  .split-image { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 1024px) {
+      .split-philosophy { grid-template-columns: 1fr; gap: 3rem; text-align: left; }
+      .split-image-wrapper { height: 400px; }
+  }
+</style>

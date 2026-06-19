@@ -1,56 +1,81 @@
 # Reporte de Errores E2E — DistriSam Make Up
 
-**Fecha:** 2026-06-18  
-**Servidor:** `http://localhost:4322/` (Astro v6.4.6)  
-**Método:** Navegación manual página por página + inspección de consola y logs del servidor
+**Fecha:** 2026-06-19  
+**Servidor:** Astro dev server  
+**Método:** Pruebas visuales, de animaciones y navegación E2E
 
 ---
 
-## Error 1: Logo 404 en todas las páginas
+## Error 1: Imágenes incorrectas en tarjetas de productos (Página Principal)
 
-| Campo                 | Detalle                                                                                                                                                                                                                                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tipo**              | 404 Not Found                                                                                                                                                                                                                                                                                                 |
-| **Recurso**           | `/logo.png`                                                                                                                                                                                                                                                                                                   |
-| **Páginas afectadas** | `/`, `/catalogo`, `/quienes-somos`, `/contacto` (todas las que tienen navegación)                                                                                                                                                                                                                             |
-| **Momento**           | Al cargar cualquier página con el componente `Navigation.astro`                                                                                                                                                                                                                                               |
-| **Causa**             | En `src/components/Navigation.astro` línea 11 hay un `<img src="/logo.png">` hardcoded que apunta a la raíz del servidor. El archivo `logo.png` no existe en `public/`. El logo real está en `src/assets/logo.png` y se importa correctamente en `Logo.astro`, pero `Navigation.astro` no usa ese componente. |
-| **Impacto**           | El logo de la barra de navegación no se muestra en ninguna página. Se ve un ícono de imagen rota.                                                                                                                                                                                                             |
-| **Fix sugerido**      | Reemplazar `<img src="/logo.png">` en `Navigation.astro` por el componente `<Logo size="sm" />` importado desde `./Logo.astro`.                                                                                                                                                                               |
+**Página:** `/` (Inicio)  
+**Sección:** "Nuestras Colecciones Estrella"  
+**Descripción:** Las 4 tarjetas de productos destacados muestran imágenes incorrectas o faltantes:
 
----
+- "Kit Vitamina C + Hialurónico" → No muestra imagen (solo texto "Ver Catálogo")
+- "Paleta Libro KYC 48 Tonos" → No muestra imagen (solo texto "Ver Catálogo")
+- "Libro Brochas x 24 Unidades" → Muestra imagen de otro producto
+- "Pijama Encaje Fino Rosa" → Muestra imagen de otro producto
 
-## Error 2: Imágenes de productos 404 en el Catálogo
-
-| Campo                 | Detalle                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tipo**              | 404 Not Found (14 imágenes)                                                                                                                                                                                                                                                                                                                                                                              |
-| **Recursos**          | `/products/01-kit-bioaqua-vitamina-c.jpg` hasta `/products/14-protector-ojeras.jpg`                                                                                                                                                                                                                                                                                                                      |
-| **Páginas afectadas** | `/catalogo`                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Momento**           | Al cargar la página de catálogo, todas las tarjetas de producto muestran imagen rota                                                                                                                                                                                                                                                                                                                     |
-| **Causa**             | En `src/pages/catalogo.astro` las imágenes se referencian como rutas estáticas `/products/...` (que esperan archivos en `public/products/`), pero la carpeta `public/products/` **no existe**. Las imágenes reales están en `src/assets/products/`. La página de inicio (`index.astro`) sí las carga correctamente porque usa el componente `<Image>` de `astro:assets` con imports desde `src/assets/`. |
-| **Impacto**           | Las 14 tarjetas de producto en el catálogo aparecen sin imagen. El sitio se ve roto/incompleto.                                                                                                                                                                                                                                                                                                          |
-| **Fix sugerido**      | Dos opciones: (A) Importar las imágenes en `catalogo.astro` desde `src/assets/products/` y pasarlas al componente `ProductCard` como objetos `ImageMetadata`, o (B) Copiar las imágenes a `public/products/` para que las rutas estáticas funcionen. La opción A es la correcta siguiendo el patrón de `index.astro`.                                                                                    |
+**Impacto:** La sección de productos destacados se ve rota e incompleta.
 
 ---
 
-## Páginas verificadas sin errores adicionales
+## Error 2: Imágenes desalineadas en el Catálogo
 
-| Página                  | Estado                 | Notas                                                       |
-| ----------------------- | ---------------------- | ----------------------------------------------------------- |
-| `/` (Inicio)            | ✅ OK (menos logo nav) | Hero, novedades, productos destacados cargan bien           |
-| `/catalogo`             | ⚠️ Imágenes rotas      | Layout, filtros, sidebar y estructura OK                    |
-| `/quienes-somos`        | ✅ OK (menos logo nav) | Historia, bloques de texto, footer OK                       |
-| `/contacto`             | ✅ OK (menos logo nav) | Formulario, info de contacto, mapa OK                       |
-| `/links`                | ✅ OK                  | Página de links tipo "bio link" sin navegación, sin errores |
-| `/pagina-que-no-existe` | ✅ OK                  | Página 404 custom se muestra correctamente                  |
+**Página:** `/catalogo`  
+**Descripción:** Las imágenes de los productos no corresponden con los nombres:
+
+- "Kit Bioaqua Camelia" muestra la imagen de "Crema Facial Vitamina C"
+- "Crema Facial Vitamina C" muestra la imagen de "Tónico de Ceramidas"
+- Las imágenes son flyers promocionales completos en lugar de fotos limpias de producto
+
+**Impacto:** Confusión visual, el cliente no puede identificar correctamente los productos.
 
 ---
 
-## Resumen
+## Error 3: Logo roto en el Footer
 
-- **2 errores encontrados**, ambos relacionados con rutas de imágenes incorrectas
-- **0 errores de JavaScript** en consola
-- **0 errores de layout/CSS** visibles
-- **6 páginas** navegadas y verificadas
-- El servidor Astro arranca sin errores de compilación
+**Páginas afectadas:** `/`, `/catalogo`, `/quienes-somos`, `/contacto`  
+**Descripción:** El logo del footer aparece como un círculo blanco vacío en lugar de mostrar la imagen de DistriSam Make Up.
+
+**Impacto:** El footer se ve incompleto y poco profesional.
+
+---
+
+## Error 4: Espacios en blanco excesivos (Página Principal)
+
+**Página:** `/` (Inicio)  
+**Descripción:** Hay espacios en blanco muy grandes entre secciones, especialmente:
+
+- Entre la navegación y el contenido "De corazón a corazón"
+- Entre la sección "Filosofía" y "Nuestras Colecciones Estrella"
+- Entre "Nuestra promesa contigo" y "Preguntas Frecuentes"
+
+**Impacto:** La página se siente vacía y mal estructurada visualmente.
+
+---
+
+## Error 5: Grid de 3 columnas roto (Sección "Nuestra promesa contigo")
+
+**Página:** `/` (Inicio)  
+**Descripción:** La tarjeta "Resultados Reales" aparece sola a la izquierda, con espacio vacío a la derecha. El grid debería mostrar 3 columnas pero solo muestra 1.5.
+
+**Impacto:** Layout roto, se ve desbalanceado.
+
+---
+
+## Resumen de Pruebas
+
+| Página                  | Estado              | Errores                                             |
+| ----------------------- | ------------------- | --------------------------------------------------- |
+| `/` (Inicio)            | ❌ Con errores      | Imágenes incorrectas, espacios en blanco, grid roto |
+| `/catalogo`             | ❌ Con errores      | Imágenes desalineadas                               |
+| `/quienes-somos`        | ✅ OK               | Sin errores visuales                                |
+| `/contacto`             | ⚠️ Logo footer roto | Logo del footer no carga                            |
+| `/links`                | ✅ OK               | Sin errores                                         |
+| `/pagina-que-no-existe` | ✅ OK               | Página 404 funciona correctamente                   |
+
+**Errores de JavaScript:** 0  
+**Errores de consola:** 0  
+**Total de errores encontrados:** 5

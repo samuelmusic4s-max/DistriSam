@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import imgArroz from '../../assets/products/10-serum-arroz.jpg';
+import imgSolar from '../../assets/products/13-protector-solar.jpg';
+---
+<section id="solucion" class="solution-section container">
+    <div class="bento-grid" data-stagger>
+        <!-- Tarjeta Principal (B2C/B2B Blend) -->
+        <div class="bento-card bento-large">
+            <div class="bento-bg">
+                <Image src={imgArroz} alt="Skincare routine" />
+            </div>
+            <div class="bento-content">
+                <h3>Tu aliado estratégico</h3>
+                <p>Curaduría experta. Solo distribuimos marcas probadas, seguras y efectivas para que compres con total tranquilidad, ya sea un labial para ti o una caja para tus clientes.</p>
+            </div>
+        </div>
+        <!-- Tarjeta Secundaria -->
+        <div class="bento-card bento-small">
+            <div class="bento-bg">
+                <Image src={imgSolar} alt="Calidad" />
+            </div>
+            <div class="bento-content">
+                <h3>Calidad a tu alcance</h3>
+                <p>Importación directa para asegurarte los mejores precios del mercado nacional.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+  .solution-section { padding: 5rem 0 6rem; }
+  .bento-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; }
+  .bento-card { position: relative; border-radius: 1rem; overflow: hidden; background: var(--cream, #fcf9f7); min-height: 400px; display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid var(--border, #eee); }
+  .bento-card:hover { transform: translateY(-5px); border-color: var(--accent, #c5a059); }
+  .bento-bg { position: absolute; inset: 0; }
+  .bento-bg img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
+  .bento-card:hover .bento-bg img { transform: scale(1.05); }
+  .bento-content { position: relative; z-index: 2; color: #F9F6F0; background: rgba(26,26,26,0.65); backdrop-filter: blur(8px); padding: 2rem; border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.1); }
+  .bento-content h3 { font-family: var(--font-display, serif); font-size: 1.75rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .bento-content p { font-size: 1rem; opacity: 0.9; line-height: 1.6; margin-bottom: 0; }
+  @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: 1fr; }
+  }
+</style>

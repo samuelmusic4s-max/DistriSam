@@ -1,0 +1,33 @@
+---
+import ProductCard from '../ProductCard.astro';
+import imgHero from '../../assets/products/01-kit-bioaqua-vitamina-c.jpg';
+import imgPaleta from '../../assets/products/15-paleta-kyc.jpg';
+import imgBrochas from '../../assets/products/16-brochas-24.jpg';
+import imgPijama from '../../assets/products/17-pijama-rosa.jpg';
+---
+<section id="rutina" class="routine-section container">
+    <div class="section-header" data-reveal="blur-up">
+        <span class="section-subtitle">Lo más amado</span>
+        <h2 class="section-title">Nuestras Colecciones Estrella</h2>
+        <p class="section-desc">Un vistazo a los productos favoritos de nuestras clientas en cada categoría.</p>
+    </div>
+    
+    <div class="product-expansive-grid" data-stagger>
+        <ProductCard image={imgHero} alt="Skincare" category="Skincare (Bioaqua)" name="Kit Vitamina C + Hialurónico" price="Ver Catálogo" tag="Top Piel" />
+        <ProductCard image={imgPaleta} alt="Maquillaje" category="Paletas (Kevin & Coco)" name="Paleta Libro KYC 48 Tonos" price="Ver Catálogo" tag="Top Color" />
+        <ProductCard image={imgBrochas} alt="Brochas" category="Accesorios" name="Libro Brochas x 24 Unidades" price="Ver Catálogo" tag="Top Beauty" />
+        <ProductCard image={imgPijama} alt="Lencería" category="Lencería & Pijamas" name="Pijama Encaje Fino Rosa" price="Ver Catálogo" tag="Top Íntimo" />
+    </div>
+</section>
+<style>
+  .routine-section { padding: 4rem 0 6rem; }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-subtitle { display: inline-block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-deep, #775a19); font-weight: 600; margin-bottom: 0.75rem; }
+  .section-title { font-size: clamp(2rem, 4vw, 2.75rem); font-family: var(--font-display, serif); font-weight: 500; color: var(--fg, #1a1a1a); margin-bottom: 1rem; letter-spacing: -0.01em; }
+  .section-desc { color: var(--muted, #555); font-size: 1.125rem; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+  .product-expansive-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+  @media (max-width: 768px) {
+      .section-title { font-size: clamp(2rem, 8vw, 2.5rem); }
+      .product-expansive-grid { grid-template-columns: 1fr; }
+  }
+</style>
