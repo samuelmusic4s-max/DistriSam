@@ -9,16 +9,39 @@ import PageHeader from '../components/PageHeader.astro';
   <PageHeader
     label="Nuestra Historia"
     title="¿Quiénes Somos?"
+    description="Conoce la trayectoria, los valores y el compromiso de DistriSam Make Up con la belleza y el crecimiento personal."
     showDivider={true}
   />
 
+  <!-- Stats Counter Grid -->
+  <section class="container stats-section" data-reveal>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">5+</span>
+        <span class="stat-label">Años de Trayectoria</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">3.500+</span>
+        <span class="stat-label">Chicas Empoderadas</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Productos Originales</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">Colombia</span>
+        <span class="stat-label">Envíos Nacionales</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Story Section 1: Origins -->
-  <section class="container" data-reveal>
+  <section class="container story-section" data-reveal>
     <div class="story-grid">
       <div class="story-text">
-        <span class="material-symbols-outlined icon" style="font-variation-settings:'wght' 200">hourglass_top</span>
+        <span class="material-symbols-outlined icon">hourglass_top</span>
         <h2>Los Inicios</h2>
-        <p>Empezamos a trabajar desde hace 5 años con plataformas de citas virtuales que les permite generar ingresos a las chicas desde casa. Después de ver sus resultados semanales, se les fue obsequiando detalles por su buen desempeño.</p>
+        <p>Empezamos a trabajar hace 5 años con plataformas de citas virtuales que permiten generar ingresos a las chicas desde casa. Después de ver su excelente desempeño y resultados semanales, comenzamos a obsequiarles detalles como reconocimiento a su esfuerzo.</p>
       </div>
       <div class="story-image">
         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw5WA1zM7M_LHVuTa5RGgTCMtY4I2cEnyUX30jFNk0buq38tOPl4ZULiGalKn6LWvYuhw4HX-LTZ0RPaDKTTb5ml92wqmKa_XxmSifYAE-7SgDcIdxpZVwDpYR93yzRUxSvIyBpLM4oO6qR8n8OOPPtmvsxzL0sgPWYgIpo2Nr_6a6tFw_qPTTIS3uBVsxpS1WoBIc7JSx0896e8cBEIU4NEid-CH48ldKQOfTmyAGiPyq9iz7gHKgsY9olzos5alX78V3fRe_Q5k" alt="Mujer trabajando desde casa">
@@ -27,15 +50,41 @@ import PageHeader from '../components/PageHeader.astro';
   </section>
 
   <!-- Story Section 2: Evolution -->
-  <section class="container" data-reveal>
+  <section class="container story-section" data-reveal>
     <div class="story-grid reverse">
-      <div class="story-image">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSzanE4JHhMrBrDTVNWsrfdeQFmZmT2RgbjxTN-YYXrLN_l8g5L7602MS-398F4rkigR4215FaOD0Qr9pvu9RqnVUMG4zjqAVDAyVBcWCBXGPa3UjKgfbL0qMz9SgqWkCbEEQIj_Nc8LB66-Xfr61vJKkDHEisCcUKOHGxoY4mko_9zJW8V_vjDb1aCh6bmytLXUHGSUSybsH9T37rK-vmSddqfsQU7OV9X6Kuuv4UA6hIZRu6vl_gRbnlioNJk5HjZGycRR9NNGI" alt="Productos de maquillaje">
-      </div>
-      <div class="story-block story-text" style="box-shadow:none;border:none;background:transparent;padding:0">
+      <div class="story-text">
+        <span class="material-symbols-outlined icon">explore</span>
         <h2>El Nacimiento de DistriSam</h2>
-        <p>Fue ahí cuando surgió la idea de montar una empresa virtual de maquillaje y lencería online ya que estos detalles siempre han gustado a nuestras hermosas chicas.</p>
-        <p>Nuestra agencia oficial es <strong>@burlesqueagencyof</strong> con más de 3.500 chicas trabajando para nuestras plataformas de citas.</p>
+        <p>Fue ahí cuando surgió la idea de montar una distribuidora virtual de maquillaje y lencería online, ya que estos detalles siempre han fascinado a nuestras chicas.</p>
+        <p>Nuestra agencia oficial es <strong>@burlesqueagencyof</strong> con más de 3.500 chicas trabajando en plataformas de citas digitales.</p>
+      </div>
+      <div class="story-image">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSzanE4JHhMrBrDTVNWsrfdeQFmZmT2RgbjxTN-YYXrLN_l8g5L7602MS-398F4rkigR4215FaOD0Qr9pvu9RqnVUMG4zjqAVDAyVBcWCBXGPa3UjKgfbL0qMz9SgqWkCbEEQIj_Nc8LB66-Xfr61vJKkDHEisCcUKOHGxoY4mko_9zJW8V_vjDb1aCh6bmytLXUHGSUSybsH9T37rK-vmSddqfsQU7OV9X6Kuuv4UA6hIZRu6vl_gRbnlioNJk5HjZGycRR9NNGI" alt="Productos de maquillaje de alta calidad">
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="container values-section" data-reveal>
+    <div class="section-title">
+      <h2>Nuestros Pilares</h2>
+      <div class="title-divider"></div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="material-symbols-outlined value-icon">favorite</span>
+        <h3>Empoderamiento</h3>
+        <p>Brindamos oportunidades reales para que más mujeres alcancen la independencia financiera y personal desde la comodidad de su hogar.</p>
+      </div>
+      <div class="value-card">
+        <span class="material-symbols-outlined value-icon">auto_awesome</span>
+        <h3>Constancia</h3>
+        <p>Creemos firmemente que el esfuerzo sostenido y la dedicación diaria son la clave para cumplir cualquier meta que nos propongamos.</p>
+      </div>
+      <div class="value-card">
+        <span class="material-symbols-outlined value-icon">workspace_premium</span>
+        <h3>Calidad</h3>
+        <p>Seleccionamos cuidadosamente cada marca y producto para ofrecer la mayor calidad en maquillaje original y cuidado dermatológico.</p>
       </div>
     </div>
   </section>
@@ -43,7 +92,7 @@ import PageHeader from '../components/PageHeader.astro';
   <!-- Philosophy Banner -->
   <section class="container" data-reveal>
     <div class="philosophy">
-      <span class="material-symbols-outlined icon" style="font-variation-settings:'wght' 200">favorite</span>
+      <span class="material-symbols-outlined icon">favorite</span>
       <blockquote>
         "Y lo que más amamos es resaltar que como mujeres somos capaces de lograr muchas cosas con <strong>constancia y disciplina</strong>, sin dejar de ser sensuales y hermosas tanto por fuera como por dentro."
       </blockquote>
@@ -51,9 +100,10 @@ import PageHeader from '../components/PageHeader.astro';
   </section>
 
   <!-- CTA -->
-  <section class="container">
-    <div class="cta-section">
-      <p>Espero que nuestros productos sean de su agrado. También que si deseas generar ingresos con nosotros no dudes en escribirnos, siendo mayorista en los productos de maquillaje o trabajando en nuestras apps.</p>
+  <section class="container" data-reveal>
+    <div class="cta-card">
+      <h2>¿Quieres crecer con nosotros?</h2>
+      <p>Esperamos que nuestros productos sean de tu total agrado. Si deseas generar ingresos adicionales, no dudes en escribirnos: puedes unirte como mayorista de maquillaje o colaborar en nuestras plataformas oficiales.</p>
       <div class="cta-buttons">
         <a href="/catalogo" class="btn-primary">Ver Catálogo</a>
         <a href="/contacto" class="btn-secondary">Únete al Equipo</a>
@@ -65,113 +115,211 @@ import PageHeader from '../components/PageHeader.astro';
 </Layout>
 
 <style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    padding: 2rem 0 4rem;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    transition: transform var(--anim-hover-fast) ease, box-shadow var(--anim-hover-fast) ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.08);
+    border-color: var(--accent);
+  }
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-deep);
+    margin-bottom: 0.5rem;
+  }
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
   /* Story Grid */
+  .story-section {
+    padding: 3rem 0;
+  }
   .story-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3rem 0;
+    gap: 2.5rem;
     align-items: center;
   }
   .story-text {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
+    border-radius: 1rem;
     padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+    transition: border-color var(--anim-hover-fast) ease;
+  }
+  .story-text:hover {
+    border-color: var(--accent);
   }
   .story-text .icon {
-    font-size: 36px;
-    color: var(--accent-deep);
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    font-variation-settings: 'wght' 200;
   }
   .story-text h2 {
     font-family: var(--font-display);
-    font-size: 24px;
+    font-size: 1.85rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    color: var(--fg);
+    margin-bottom: 1.25rem;
   }
   .story-text p {
-    font-size: 18px;
+    font-size: 1.05rem;
     color: var(--muted);
-    line-height: 1.7;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .story-text p:last-child {
+    margin-bottom: 0;
   }
   .story-image {
-    border-radius: 0.75rem;
+    border-radius: 1rem;
     overflow: hidden;
-    height: 400px;
+    aspect-ratio: 16/11;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
   }
   .story-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s;
+    transition: transform var(--anim-hover-duration) cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .story-image:hover img { transform: scale(1.03); }
+  .story-image:hover img {
+    transform: scale(1.05);
+  }
 
-  .story-block h2 {
-    font-family: var(--font-display);
-    font-size: clamp(24px, 3vw, 32px);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+  /* Values Section */
+  .values-section {
+    padding: 5rem 0 3rem;
   }
-  .story-block p {
-    font-size: 18px;
-    color: var(--muted);
-    line-height: 1.7;
+  .section-title {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .section-title h2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 0.75rem;
+  }
+  .title-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0 auto;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .value-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform var(--anim-hover-fast) ease, box-shadow var(--anim-hover-fast) ease;
+  }
+  .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.08);
+    border-color: var(--accent);
+  }
+  .value-icon {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-variation-settings: 'wght' 200;
+  }
+  .value-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--fg);
     margin-bottom: 1rem;
   }
-  .story-block strong { color: var(--fg); }
+  .value-card p {
+    font-size: 0.975rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
 
   /* Philosophy Banner */
   .philosophy {
     background: var(--soft-blush);
-    border-radius: 0.75rem;
+    border-radius: 1rem;
     padding: 4rem 2rem;
     text-align: center;
-    margin: 3rem 0;
+    margin: 4rem 0;
     position: relative;
     overflow: hidden;
   }
-  .philosophy::before {
+  .philosophy::before, .philosophy::after {
     content: '';
     position: absolute;
-    top: -40px;
-    left: -40px;
-    width: 160px;
-    height: 160px;
-    background: var(--gold-shimmer);
-    opacity: 0.1;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    filter: blur(40px);
+    filter: blur(50px);
+    pointer-events: none;
+  }
+  .philosophy::before {
+    top: -60px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%);
   }
   .philosophy::after {
-    content: '';
-    position: absolute;
-    bottom: -40px;
-    right: -40px;
-    width: 160px;
-    height: 160px;
-    background: var(--accent-deep);
-    opacity: 0.05;
-    border-radius: 50%;
-    filter: blur(40px);
+    bottom: -60px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(119, 90, 25, 0.1) 0%, transparent 70%);
   }
   .philosophy .icon {
-    font-size: 48px;
+    font-size: 3rem;
     color: var(--accent-deep);
     margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
+    font-variation-settings: 'wght' 100;
   }
   .philosophy blockquote {
     font-family: var(--font-display);
-    font-size: clamp(20px, 3vw, 36px);
+    font-size: clamp(1.25rem, 4vw, 2rem);
     font-style: italic;
     color: var(--fg);
     max-width: 800px;
     margin: 0 auto;
-    line-height: 1.5;
+    line-height: 1.6;
     position: relative;
     z-index: 1;
   }
@@ -181,60 +329,113 @@ import PageHeader from '../components/PageHeader.astro';
     font-weight: 700;
   }
 
-  /* CTA Section */
-  .cta-section {
+  /* CTA Card */
+  .cta-card {
+    background: var(--matte-black);
+    color: var(--cream);
+    border-radius: 1.5rem;
+    padding: 4rem 2rem;
     text-align: center;
-    padding: 3rem 0 5rem;
+    margin: 4rem 0 6rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   }
-  .cta-section p {
-    font-size: 18px;
-    color: var(--muted);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    line-height: 1.7;
+  .cta-card h2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--surface);
+    margin-bottom: 1.25rem;
+  }
+  .cta-card p {
+    font-size: 1.05rem;
+    color: rgba(252, 249, 247, 0.8);
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
   }
   .cta-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     justify-content: center;
     flex-wrap: wrap;
   }
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    padding: 0.875rem 2rem;
-    background: var(--matte-black);
-    color: var(--surface);
+    padding: 1rem 2.25rem;
+    background: var(--accent);
+    color: var(--matte-black);
     font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 0.8125rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    border-radius: 0.25rem;
-    transition: background 0.3s;
+    border-radius: 99px;
+    transition: transform var(--anim-hover-fast) ease, box-shadow var(--anim-hover-fast) ease;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
   }
-  .btn-primary:hover { background: var(--accent-deep); }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+    background: var(--gold-shimmer);
+  }
   .btn-secondary {
     display: inline-flex;
     align-items: center;
-    padding: 0.875rem 2rem;
+    padding: 1rem 2.25rem;
     background: transparent;
-    color: var(--accent-deep);
-    border: 1px solid var(--accent-deep);
+    color: var(--cream);
+    border: 1.5px solid var(--cream);
     font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 0.8125rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    border-radius: 0.25rem;
-    transition: all 0.3s;
+    border-radius: 99px;
+    transition: all var(--anim-hover-fast) ease;
+    text-decoration: none;
   }
-  .btn-secondary:hover { background: var(--soft-blush); }
+  .btn-secondary:hover {
+    background: var(--cream);
+    color: var(--matte-black);
+    transform: translateY(-2px);
+  }
 
+  /* Responsive Queries */
   @media (min-width: 768px) {
-    .story-grid { grid-template-columns: 1fr 1fr; }
-    .story-grid.reverse { direction: rtl; }
-    .story-grid.reverse > * { direction: ltr; }
-    .story-image { height: 500px; }
+    .story-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    .story-grid.reverse .story-text {
+      order: 2;
+    }
+    .story-grid.reverse .story-image {
+      order: 1;
+    }
+    
+    .values-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .cta-card {
+      padding: 5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .story-text, .value-card {
+      padding: 1.75rem;
+    }
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+      align-items: stretch;
+    }
+    .cta-buttons a {
+      justify-content: center;
+    }
   }
 </style>
