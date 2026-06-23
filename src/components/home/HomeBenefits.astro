@@ -30,13 +30,15 @@
   .section-header { text-align: center; margin-bottom: 4rem; }
   .section-subtitle { display: inline-block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-deep, #775a19); font-weight: 600; margin-bottom: 0.75rem; }
   .section-title { font-size: clamp(2rem, 4vw, 2.75rem); font-family: var(--font-display, serif); font-weight: 500; color: var(--fg, #1a1a1a); margin-bottom: 1rem; letter-spacing: -0.01em; }
-  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+  .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; }
   .benefit-card { background: var(--cream, #fcf9f7); padding: 3rem 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s; border: 1px solid var(--border, #eee); }
   .benefit-card:hover { transform: translateY(-5px); border-color: var(--accent, #c5a059); }
   .benefit-icon { font-size: 40px; color: var(--accent-deep, #775a19); margin-bottom: 1.5rem; }
   .benefit-card h3 { font-family: var(--font-display, serif); font-size: 1.25rem; color: var(--fg, #1a1a1a); margin-bottom: 1rem; font-weight: 600; }
   .benefit-card p { color: var(--muted, #555); font-size: 1.1rem; line-height: 1.7; }
-  @media (max-width: 1024px) {
-      .benefits-grid { grid-template-columns: 1fr; }
+  @media (max-width: 768px) {
+      .benefits-section { padding: 4rem 0; }
+      .benefits-grid { margin-top: 2.5rem; gap: 1.5rem; }
+      .benefit-card { padding: 2rem 1.5rem; }
   }
 </style>
