@@ -1,28 +1,60 @@
 ---
-import { Image } from 'astro:assets';
-import tituloSvg from '../assets/combinated_logo_2.0.svg';
+import { Image } from "astro:assets";
+import tituloSvg from "../assets/combinated_logo_2.0.svg";
 
 interface Props {
     activePage?: string;
 }
 
-const {activePage} = Astro.props;
+const { activePage } = Astro.props;
 ---
+
 <nav class="nav-modelo">
     <div class="container nav-inner">
         <a href="/main" class="nav-logo" aria-label="Ir al inicio">
             <Image src={tituloSvg} alt="DistriSam" class="nav-brand-img" />
         </a>
         <ul class="nav-links">
-            <li><a href="/main" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
-            <li><a href="/main#solucion">La Solución</a></li>
-            <li><a href="/main#rutina">Rutina Recomendada</a></li>
-            <li><a href="https://drive.google.com/file/d/1yT-6zh7g2ybP8hY9UdFr_7Sun5VYLDKf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo Detal</a></li>
-            <li><a href="https://drive.google.com/file/d/1IX8WL589GkpA2Y6Dd-rsTdADiQzUfwVC/view?usp=sharing" target="_blank" rel="noopener noreferrer">Catálogo Mayorista</a></li>
-            <li><a href="/quienes-somos" class={activePage === 'quienes-somos' ? 'active' : ''}>Quiénes Somos</a></li>
+            <li>
+                <a href="/" class={activePage === "links" ? "active" : ""}
+                    >Menú de Enlaces</a
+                >
+            </li>
+
+            <li>
+                <a href="/main" class={activePage === "inicio" ? "active" : ""}
+                    >Inicio</a
+                >
+            </li>
+
+            <li>
+                <a
+                    href="https://drive.google.com/file/d/1yT-6zh7g2ybP8hY9UdFr_7Sun5VYLDKf/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={activePage === "catalogo" ? "active" : ""}
+                    >Catálogo Detal</a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://drive.google.com/file/d/1IX8WL589GkpA2Y6Dd-rsTdADiQzUfwVC/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer">Catálogo Mayorista</a
+                >
+            </li>
+            <li>
+                <a
+                    href="/quienes-somos"
+                    class={activePage === "quienes-somos" ? "active" : ""}
+                    >Quiénes Somos</a
+                >
+            </li>
         </ul>
         <div class="nav-actions">
-            <button class="nav-toggle" id="menu-toggle" aria-label="Menú"><span class="material-symbols-outlined">menu</span></button>
+            <button class="nav-toggle" id="menu-toggle" aria-label="Menú"
+                ><span class="material-symbols-outlined">menu</span></button
+            >
         </div>
     </div>
 </nav>
@@ -32,41 +64,73 @@ const {activePage} = Astro.props;
     <div class="mobile-menu-inner">
         <div class="mobile-menu-header">
             <Image src={tituloSvg} alt="DistriSam" class="nav-brand-img" />
-            <button class="nav-toggle-close" id="menu-close" aria-label="Cerrar Menú">
+            <button
+                class="nav-toggle-close"
+                id="menu-close"
+                aria-label="Cerrar Menú"
+            >
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
         <ul class="mobile-nav-links">
-            <li><a href="/main" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
+            <li>
+                <a href="/main" class={activePage === "inicio" ? "active" : ""}
+                    >Inicio</a
+                >
+            </li>
             <li><a href="/main#solucion">La Solución</a></li>
             <li><a href="/main#rutina">Rutina Recomendada</a></li>
-            <li><a href="https://drive.google.com/file/d/1yT-6zh7g2ybP8hY9UdFr_7Sun5VYLDKf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo Detal</a></li>
-            <li><a href="https://drive.google.com/file/d/1IX8WL589GkpA2Y6Dd-rsTdADiQzUfwVC/view?usp=sharing" target="_blank" rel="noopener noreferrer">Catálogo Mayorista</a></li>
-            <li><a href="/quienes-somos" class={activePage === 'quienes-somos' ? 'active' : ''}>Quiénes Somos</a></li>
+            <li>
+                <a
+                    href="https://drive.google.com/file/d/1yT-6zh7g2ybP8hY9UdFr_7Sun5VYLDKf/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={activePage === "catalogo" ? "active" : ""}
+                    >Catálogo Detal</a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://drive.google.com/file/d/1IX8WL589GkpA2Y6Dd-rsTdADiQzUfwVC/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer">Catálogo Mayorista</a
+                >
+            </li>
+            <li>
+                <a
+                    href="/quienes-somos"
+                    class={activePage === "quienes-somos" ? "active" : ""}
+                    >Quiénes Somos</a
+                >
+            </li>
         </ul>
     </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuClose = document.getElementById("menu-close");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileLinks = document.querySelectorAll(".mobile-nav-links a");
 
         if (menuToggle && menuClose && mobileMenu) {
             const toggleMenu = () => {
-                mobileMenu.classList.toggle('is-open');
-                document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+                mobileMenu.classList.toggle("is-open");
+                document.body.style.overflow = mobileMenu.classList.contains(
+                    "is-open",
+                )
+                    ? "hidden"
+                    : "";
             };
 
-            menuToggle.addEventListener('click', toggleMenu);
-            menuClose.addEventListener('click', toggleMenu);
-            
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('is-open');
-                    document.body.style.overflow = '';
+            menuToggle.addEventListener("click", toggleMenu);
+            menuClose.addEventListener("click", toggleMenu);
+
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.remove("is-open");
+                    document.body.style.overflow = "";
                 });
             });
         }
@@ -82,7 +146,7 @@ const {activePage} = Astro.props;
         background: rgba(249, 246, 240, 0.85);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid rgba(26,26,26, 0.05);
+        border-bottom: 1px solid rgba(26, 26, 26, 0.05);
         padding: 1.25rem 0;
     }
     .container {
@@ -113,7 +177,7 @@ const {activePage} = Astro.props;
         padding: 0;
     }
     .nav-links a {
-        font-family: 'Outfit', sans-serif;
+        font-family: "Outfit", sans-serif;
         font-size: 14px;
         font-weight: 600;
         color: #666;
@@ -123,14 +187,14 @@ const {activePage} = Astro.props;
         text-decoration: none;
         letter-spacing: 0.05em;
     }
-    
+
     .nav-links a:hover,
     .nav-links a.active {
-        background-color: #1A1A1A;
-        color: #F9F6F0;
+        background-color: #1a1a1a;
+        color: #f9f6f0;
         transform: translateY(-2px);
     }
-    
+
     .nav-actions {
         display: flex;
         gap: 1.25rem;
@@ -140,19 +204,23 @@ const {activePage} = Astro.props;
         background: none;
         border: none;
         cursor: pointer;
-        color: #1A1A1A;
+        color: #1a1a1a;
         font-size: 24px;
-        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+        transition:
+            transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+            color 0.2s;
         padding: 0;
         display: flex;
         align-items: center;
     }
     .nav-actions button:hover {
         transform: scale(1.15) translateY(-2px);
-        color: #C5A059;
+        color: #c5a059;
     }
-    .nav-actions button.nav-toggle { display: none; }
-    
+    .nav-actions button.nav-toggle {
+        display: none;
+    }
+
     /* Mobile Menu Styles */
     .mobile-menu {
         position: fixed;
@@ -171,41 +239,41 @@ const {activePage} = Astro.props;
         pointer-events: none;
         transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    
+
     .mobile-menu.is-open {
         opacity: 1;
         pointer-events: auto;
     }
-    
+
     .mobile-menu-inner {
         padding: 1.5rem;
         display: flex;
         flex-direction: column;
         height: 100%;
     }
-    
+
     .mobile-menu-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 3rem;
     }
-    
+
     .nav-toggle-close {
         background: none;
         border: none;
         cursor: pointer;
-        color: #1A1A1A;
+        color: #1a1a1a;
         font-size: 28px;
         padding: 0;
         display: flex;
         align-items: center;
         transition: transform 0.3s ease;
     }
-    
+
     .nav-toggle-close:hover {
         transform: rotate(90deg);
-        color: #C5A059;
+        color: #c5a059;
     }
 
     .mobile-nav-links {
@@ -216,39 +284,58 @@ const {activePage} = Astro.props;
         flex-direction: column;
         gap: 2rem;
     }
-    
+
     .mobile-nav-links a {
-        font-family: 'Outfit', sans-serif;
+        font-family: "Outfit", sans-serif;
         font-size: 28px;
         font-weight: 600;
-        color: #1A1A1A;
+        color: #1a1a1a;
         text-decoration: none;
         display: inline-block;
         transform: translateY(20px);
         opacity: 0;
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s, color 0.3s;
+        transition:
+            transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+            opacity 0.4s,
+            color 0.3s;
     }
-    
+
     .mobile-nav-links a:hover,
     .mobile-nav-links a.active {
-        color: #C5A059;
+        color: #c5a059;
     }
-    
+
     .mobile-menu.is-open .mobile-nav-links a {
         transform: translateY(0);
         opacity: 1;
     }
-    
+
     /* Animación en cascada (stagger) para los enlaces del móvil */
-    .mobile-menu.is-open .mobile-nav-links li:nth-child(1) a { transition-delay: 0.1s; }
-    .mobile-menu.is-open .mobile-nav-links li:nth-child(2) a { transition-delay: 0.15s; }
-    .mobile-menu.is-open .mobile-nav-links li:nth-child(3) a { transition-delay: 0.2s; }
-    .mobile-menu.is-open .mobile-nav-links li:nth-child(4) a { transition-delay: 0.25s; }
-    .mobile-menu.is-open .mobile-nav-links li:nth-child(5) a { transition-delay: 0.3s; }
-    .mobile-menu.is-open .mobile-nav-links li:nth-child(6) a { transition-delay: 0.35s; }
-    
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(1) a {
+        transition-delay: 0.1s;
+    }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(2) a {
+        transition-delay: 0.15s;
+    }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(3) a {
+        transition-delay: 0.2s;
+    }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(4) a {
+        transition-delay: 0.25s;
+    }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(5) a {
+        transition-delay: 0.3s;
+    }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(6) a {
+        transition-delay: 0.35s;
+    }
+
     @media (max-width: 1024px) {
-        .nav-links { display: none; }
-        .nav-actions button.nav-toggle { display: block; }
+        .nav-links {
+            display: none;
+        }
+        .nav-actions button.nav-toggle {
+            display: block;
+        }
     }
 </style>
