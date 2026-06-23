@@ -156,7 +156,9 @@ const customStyle = typeof size === 'number' ? `--logo-size: ${size}px;` : undef
     border: none;
   }
   .logo-invert .logo-img-wrap img {
-    filter: brightness(0) invert(1);
+    /* Eliminamos brightness(0) para no perder los detalles del logo original */
+    filter: invert(1) hue-rotate(180deg);
+    mix-blend-mode: screen;
     padding: 0;
   }
 </style>
