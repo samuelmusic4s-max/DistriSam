@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FooterModelo from '../components/FooterModelo.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<Layout title="Términos y Condiciones — DistriSam Make Up" activePage="terminos">
+  <PageHeader
+    label="Legal"
+    title="Términos y Condiciones"
+    description="Conoce los términos que regulan la navegación y proceso de compra en DISTRISAM MAKEUP."
+    showDivider={true}
+  />
+
+  <section class="policy-section">
+    <div class="container">
+      <div class="policy-content" data-reveal>
+
+        <div class="policy-block">
+          <h2>1. Objeto</h2>
+          <p>Los presentes Términos y Condiciones regulan el acceso y uso del sitio web de <strong>DISTRISAM MAKEUP</strong>, el cual funciona como un catálogo virtual para la exhibición de nuestros productos de belleza, cuidado de la piel y lencería. La formalización de cualquier compra se realiza de manera externa a través de nuestro canal de atención oficial en WhatsApp.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>2. Naturaleza del Servicio</h2>
+          <p>DISTRISAM MAKEUP actúa como distribuidor de productos de belleza y cuidado personal. No operamos con carrito de compras ni pasarela de pagos integrada en este sitio web. Todo el proceso de cotización, confirmación de stock, facturación y coordinación de envío se gestiona de forma personalizada y directa con cada cliente vía WhatsApp.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>3. Proceso de Compra</h2>
+          <p>Para adquirir nuestros productos, el cliente debe seguir estos pasos:</p>
+          <ul>
+            <li>Explorar los catálogos en PDF (Detal o Mayorista) disponibles en el sitio web.</li>
+            <li>Contactar a nuestro equipo de ventas a través del enlace de WhatsApp oficial.</li>
+            <li>Indicar los productos deseados para verificar disponibilidad y generar la orden.</li>
+            <li>Realizar el pago a través de los medios autorizados.</li>
+            <li>Enviar el comprobante de pago junto con los datos exactos de envío.</li>
+            <li>Recibir la guía de rastreo (para envíos nacionales) o la confirmación de entrega (para envíos locales).</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h2>4. Métodos de Pago Autorizados</h2>
+          <p>Aceptamos pagos únicamente a través de los siguientes canales oficiales. <strong>Verifique siempre que el número de cuenta coincida antes de realizar cualquier transferencia.</strong></p>
+          <div class="info-card">
+            <div class="info-row">
+              <span class="info-label">Nequi</span>
+              <span class="info-value">317 797 0323</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">DaviPlata</span>
+              <span class="info-value">317 797 0323</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Bancolombia</span>
+              <span class="info-value">879 6527 9359</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">BreB</span>
+              <span class="info-value">98394609</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="policy-block">
+          <h2>5. Precios</h2>
+          <p>Los precios publicados en los catálogos están en pesos colombianos (COP). DISTRISAM MAKEUP se reserva el derecho de modificar los precios en cualquier momento sin previo aviso. El precio final aplicable a su pedido será el confirmado por nuestro asesor a través de WhatsApp al momento de generar la orden.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>6. Política de Envíos</h2>
+          <p>Realizamos envíos locales en la ciudad de Pasto y envíos nacionales a toda Colombia a través de las transportadoras Envía e Interrapidísimo. <strong>El costo del envío NO está incluido</strong> en el valor de los productos y será asumido por el cliente al recibir el paquete, a menos que se acuerde lo contrario. Para más detalles, consulte nuestra <a href="/envios-y-devoluciones">Política de Envíos y Devoluciones</a>.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>7. Propiedad Intelectual</h2>
+          <p>Todo el contenido de este sitio web, incluyendo textos, logotipos, gráficos, imágenes y diseño estructural, es propiedad exclusiva de DISTRISAM MAKEUP y está protegido por las leyes de propiedad intelectual colombianas e internacionales. Queda prohibida su reproducción, distribución o modificación sin autorización expresa.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>8. Limitación de Responsabilidad</h2>
+          <p>DISTRISAM MAKEUP no se hace responsable por retrasos, pérdidas o daños de la mercancía que ocurran durante el tránsito a través de las transportadoras (Envía o Interrapidísimo), dado que es un servicio tercerizado. Sin embargo, brindaremos el acompañamiento necesario para gestionar cualquier reclamación ante la transportadora.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>9. Modificaciones a los Términos</h2>
+          <p>Nos reservamos el derecho de actualizar o modificar estos Términos y Condiciones en cualquier momento. Los cambios entrarán en vigencia inmediatamente después de su publicación en el sitio web.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>10. Ley Aplicable</h2>
+          <p>Estos Términos y Condiciones se rigen e interpretan de acuerdo con las leyes de la República de Colombia. Cualquier controversia será sometida a los jueces competentes en la ciudad de Pasto, Nariño.</p>
+        </div>
+
+        <div class="policy-meta">
+          <p><strong>Última actualización:</strong> Junio de 2026</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <FooterModelo />
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .policy-section {
+    padding: 2rem 0 5rem;
+  }
+
+  .policy-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .policy-block {
+    margin-bottom: 3rem;
+  }
+
+  .policy-block h2 {
+    font-family: var(--font-display, serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--fg, #1a1a1a);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border, #eee);
+  }
+
+  .policy-block p {
+    font-size: 1.05rem;
+    color: var(--muted, #555);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .policy-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .policy-block ul li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.85rem;
+    font-size: 1.05rem;
+    color: var(--muted, #555);
+    line-height: 1.7;
+  }
+
+  .policy-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent, #c5a059);
+  }
+
+  .policy-block ul li strong {
+    color: var(--fg, #1a1a1a);
+  }
+
+  .policy-block a {
+    color: var(--accent-deep, #775a19);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s;
+  }
+
+  .policy-block a:hover {
+    color: var(--accent, #c5a059);
+  }
+
+  /* Info Card */
+  .info-card {
+    background: var(--surface, #fafafa);
+    border: 1px solid var(--border, #eee);
+    border-radius: 0.75rem;
+    padding: 1.5rem 2rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  .info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .info-row:first-child {
+    padding-top: 0;
+  }
+
+  .info-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-deep, #775a19);
+    font-weight: 600;
+    min-width: 160px;
+  }
+
+  .info-value {
+    font-size: 1rem;
+    color: var(--fg, #1a1a1a);
+    flex: 1;
+  }
+
+  .info-value a {
+    color: var(--accent-deep, #775a19);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Meta */
+  .policy-meta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--accent, #c5a059);
+    text-align: center;
+  }
+
+  .policy-meta p {
+    font-size: 0.95rem;
+    color: var(--muted, #555);
+  }
+
+  .policy-meta strong {
+    color: var(--fg, #1a1a1a);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .policy-section {
+      padding: 1.5rem 0 4rem;
+    }
+
+    .policy-block h2 {
+      font-size: 1.3rem;
+    }
+
+    .info-card {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .info-row {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .info-label {
+      min-width: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .policy-block h2 {
+      font-size: 1.65rem;
+    }
+  }
+</style>

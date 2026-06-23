@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import FooterModelo from '../components/FooterModelo.astro';
 import PageHeader from '../components/PageHeader.astro';
+import { Image } from 'astro:assets';
+import imgOrigins from '../assets/about/origins.jpg';
+import imgEvolution from '../assets/about/evolution.jpg';
 ---
 
 <Layout title="Quiénes Somos — DistriSam Make Up" activePage="quienes-somos">
@@ -43,7 +46,7 @@ import PageHeader from '../components/PageHeader.astro';
           <p>Todo comenzó con un profundo deseo de empoderar y reconocer el esfuerzo diario de la mujer colombiana. Empezamos con pequeños detalles de belleza para motivar e inspirar, y rápidamente nos dimos cuenta del impacto transformador que tiene el cuidado personal en la autoestima.</p>
         </div>
         <div class="story-image">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw5WA1zM7M_LHVuTa5RGgTCMtY4I2cEnyUX30jFNk0buq38tOPl4ZULiGalKn6LWvYuhw4HX-LTZ0RPaDKTTb5ml92wqmKa_XxmSifYAE-7SgDcIdxpZVwDpYR93yzRUxSvIyBpLM4oO6qR8n8OOPPtmvsxzL0sgPWYgIpo2Nr_6a6tFw_qPTTIS3uBVsxpS1WoBIc7JSx0896e8cBEIU4NEid-CH48ldKQOfTmyAGiPyq9iz7gHKgsY9olzos5alX78V3fRe_Q5k" alt="Mujer trabajando desde casa">
+          <Image src={imgOrigins} alt="Mujer emprendedora organizando productos de belleza" />
         </div>
       </div>
     </div>
@@ -60,7 +63,7 @@ import PageHeader from '../components/PageHeader.astro';
           <p>Hoy en día, nuestro esfuerzo está completamente dedicado a ofrecerte productos de alta calidad a precios justos, ya sea para que cuides de ti misma o para que surtas tu propio emprendimiento.</p>
         </div>
         <div class="story-image">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSzanE4JHhMrBrDTVNWsrfdeQFmZmT2RgbjxTN-YYXrLN_l8g5L7602MS-398F4rkigR4215FaOD0Qr9pvu9RqnVUMG4zjqAVDAyVBcWCBXGPa3UjKgfbL0qMz9SgqWkCbEEQIj_Nc8LB66-Xfr61vJKkDHEisCcUKOHGxoY4mko_9zJW8V_vjDb1aCh6bmytLXUHGSUSybsH9T37rK-vmSddqfsQU7OV9X6Kuuv4UA6hIZRu6vl_gRbnlioNJk5HjZGycRR9NNGI" alt="Productos de maquillaje de alta calidad">
+          <Image src={imgEvolution} alt="Productos de maquillaje de alta calidad" />
         </div>
       </div>
     </div>

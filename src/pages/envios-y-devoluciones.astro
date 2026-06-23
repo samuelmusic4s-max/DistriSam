@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FooterModelo from '../components/FooterModelo.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<Layout title="Envíos y Devoluciones — DistriSam Make Up" activePage="envios">
+  <PageHeader
+    label="Atención al Cliente"
+    title="Políticas de Envíos y Devoluciones"
+    description="Conoce nuestras zonas de cobertura, tiempos de entrega y proceso de garantía."
+    showDivider={true}
+  />
+
+  <section class="policy-section">
+    <div class="container">
+      <div class="policy-content" data-reveal>
+
+        <div class="policy-block">
+          <h2>1. Cobertura</h2>
+          <p>DISTRISAM MAKEUP realiza entregas a domicilio dentro del casco urbano de la ciudad de Pasto y realiza despachos a nivel nacional a todos los municipios de Colombia con cobertura a través de nuestras transportadoras aliadas.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>2. Envíos Locales (Pasto)</h2>
+          <p>Para la ciudad de Pasto, las entregas a domicilio se realizan de <strong>Lunes a Sábado hasta el mediodía</strong>. Los pedidos confirmados en la mañana suelen entregarse el mismo día o al día siguiente hábil. El cliente debe proporcionar una dirección exacta y un número de contacto para coordinar la entrega.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>3. Envíos Nacionales</h2>
+          <p>Los despachos al resto del país se realizan a través de las transportadoras <strong>Interrapidísimo</strong> o <strong>Envía</strong>. Una vez confirmado el pago, el pedido se procesa y despacha. El cliente recibirá una guía de rastreo a través de WhatsApp para hacer seguimiento a su paquete en la página web de la transportadora correspondiente.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>4. Costos de Envío</h2>
+          <p><strong>El valor del envío NO está incluido en el precio de los productos.</strong> El costo del flete, tanto para domicilios locales como para envíos nacionales, es asumido por el cliente. Para envíos nacionales, el pago del flete se realiza normalmente en la modalidad "Contra Entrega" al recibir el paquete, a menos que se acuerde el pago anticipado con el asesor.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>5. Tiempos de Entrega</h2>
+          <p>Los tiempos estimados de entrega son los siguientes:</p>
+          <ul>
+            <li><strong>Pasto:</strong> Mismo día o 1 día hábil (entregas hasta el mediodía).</li>
+            <li><strong>Nivel Nacional:</strong> De 2 a 5 días hábiles, dependiendo del municipio de destino y la logística de la transportadora.</li>
+          </ul>
+          <p><em>Nota: Los tiempos nacionales pueden variar por causas de fuerza mayor ajenas a DISTRISAM MAKEUP (paros, bloqueos viales, clima, etc.).</em></p>
+        </div>
+
+        <div class="policy-block">
+          <h2>6. Política de Devoluciones y Garantías</h2>
+          <p>Nuestro compromiso es ofrecer productos de alta calidad. Si requiere una devolución o cambio, aplican las siguientes condiciones:</p>
+          <ul>
+            <li><strong>Plazo:</strong> El cliente tiene un plazo máximo de cinco (5) días hábiles contados a partir de la fecha de recepción del producto para solicitar una devolución.</li>
+            <li><strong>Condición del producto:</strong> Para que la devolución sea aceptada, el producto debe estar sin uso, con sus sellos de seguridad intactos, y en su empaque original en perfectas condiciones.</li>
+            <li><strong>Costos de retorno:</strong> El cliente asumirá los costos de envío para retornar el producto a nuestras instalaciones.</li>
+            <li><strong>Reembolso:</strong> Una vez recibido e inspeccionado el producto, el reembolso se realizará al mismo método de pago utilizado, en un plazo máximo de diez (10) días hábiles.</li>
+            <li><strong>Excepciones (No devoluciones):</strong> Por razones de higiene y salud pública, <strong>no se aceptan devoluciones de lencería ni de productos de cuidado de la piel que hayan sido abiertos o probados</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h2>7. Productos Defectuosos o Incorrectos</h2>
+          <p>Si recibe un producto defectuoso de fábrica, dañado durante el transporte, o un artículo diferente al que solicitó, DISTRISAM MAKEUP se hará cargo del cambio. En este caso específico, el reemplazo del producto y los costos de envío asociados serán asumidos en su totalidad por nuestra empresa, sin costo adicional para usted.</p>
+        </div>
+
+        <div class="policy-block">
+          <h2>8. Contacto para Reclamaciones</h2>
+          <p>Para gestionar envíos, rastrear paquetes o solicitar devoluciones, comuníquese con nosotros a través de los siguientes canales:</p>
+          <div class="info-card">
+            <div class="info-row">
+              <span class="info-label">WhatsApp</span>
+              <span class="info-value"><a href="https://wa.me/573027431560">+57 302 743 1560</a></span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Correo electrónico</span>
+              <span class="info-value"><a href="mailto:maquillajedistrisamoficial@gmail.com">maquillajedistrisamoficial@gmail.com</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="policy-meta">
+          <p><strong>Última actualización:</strong> Junio de 2026</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <FooterModelo />
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .policy-section {
+    padding: 2rem 0 5rem;
+  }
+
+  .policy-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .policy-block {
+    margin-bottom: 3rem;
+  }
+
+  .policy-block h2 {
+    font-family: var(--font-display, serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--fg, #1a1a1a);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border, #eee);
+  }
+
+  .policy-block p {
+    font-size: 1.05rem;
+    color: var(--muted, #555);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .policy-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .policy-block ul li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.85rem;
+    font-size: 1.05rem;
+    color: var(--muted, #555);
+    line-height: 1.7;
+  }
+
+  .policy-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent, #c5a059);
+  }
+
+  .policy-block ul li strong {
+    color: var(--fg, #1a1a1a);
+  }
+
+  .policy-block a {
+    color: var(--accent-deep, #775a19);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s;
+  }
+
+  .policy-block a:hover {
+    color: var(--accent, #c5a059);
+  }
+
+  /* Info Card */
+  .info-card {
+    background: var(--surface, #fafafa);
+    border: 1px solid var(--border, #eee);
+    border-radius: 0.75rem;
+    padding: 1.5rem 2rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  .info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .info-row:first-child {
+    padding-top: 0;
+  }
+
+  .info-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-deep, #775a19);
+    font-weight: 600;
+    min-width: 160px;
+  }
+
+  .info-value {
+    font-size: 1rem;
+    color: var(--fg, #1a1a1a);
+    flex: 1;
+  }
+
+  .info-value a {
+    color: var(--accent-deep, #775a19);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Meta */
+  .policy-meta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--accent, #c5a059);
+    text-align: center;
+  }
+
+  .policy-meta p {
+    font-size: 0.95rem;
+    color: var(--muted, #555);
+  }
+
+  .policy-meta strong {
+    color: var(--fg, #1a1a1a);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .policy-section {
+      padding: 1.5rem 0 4rem;
+    }
+
+    .policy-block h2 {
+      font-size: 1.3rem;
+    }
+
+    .info-card {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .info-row {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .info-label {
+      min-width: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .policy-block h2 {
+      font-size: 1.65rem;
+    }
+  }
+</style>

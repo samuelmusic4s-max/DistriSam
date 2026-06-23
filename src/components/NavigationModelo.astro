@@ -19,7 +19,7 @@ const {activePage} = Astro.props;
             <li><a href="/main#rutina">Rutina Recomendada</a></li>
             <li><a href="https://drive.google.com/file/d/1yT-6zh7g2ybP8hY9UdFr_7Sun5VYLDKf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo Detal</a></li>
             <li><a href="https://drive.google.com/file/d/1IX8WL589GkpA2Y6Dd-rsTdADiQzUfwVC/view?usp=sharing" target="_blank" rel="noopener noreferrer">Catálogo Mayorista</a></li>
-            <li><a href="/quienes-somos">Quiénes Somos</a></li>
+            <li><a href="/quienes-somos" class={activePage === 'quienes-somos' ? 'active' : ''}>Quiénes Somos</a></li>
         </ul>
         <div class="nav-actions">
             <button class="nav-toggle" id="menu-toggle" aria-label="Menú"><span class="material-symbols-outlined">menu</span></button>
@@ -42,7 +42,7 @@ const {activePage} = Astro.props;
             <li><a href="/main#rutina">Rutina Recomendada</a></li>
             <li><a href="https://drive.google.com/file/d/1yT-6zh7g2ybP8hY9UdFr_7Sun5VYLDKf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo Detal</a></li>
             <li><a href="https://drive.google.com/file/d/1IX8WL589GkpA2Y6Dd-rsTdADiQzUfwVC/view?usp=sharing" target="_blank" rel="noopener noreferrer">Catálogo Mayorista</a></li>
-            <li><a href="/quienes-somos">Quiénes Somos</a></li>
+            <li><a href="/quienes-somos" class={activePage === 'quienes-somos' ? 'active' : ''}>Quiénes Somos</a></li>
         </ul>
     </div>
 </div>
