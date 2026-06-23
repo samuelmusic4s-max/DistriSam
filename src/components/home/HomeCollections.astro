@@ -7,40 +7,96 @@ import imgPijama from '../../assets/products/17-pijama-rosa.jpg';
 ---
 <section id="rutina" class="routine-section container">
     <div class="section-header" data-reveal="blur-up">
-        <span class="section-subtitle">Lo más amado</span>
-        <h2 class="section-title">Nuestras Colecciones Estrella</h2>
-        <p class="section-desc">Un vistazo a los productos favoritos de nuestras clientas en cada categoría.</p>
+        <span class="section-subtitle">Lo que ofrecemos</span>
+        <h2 class="section-title">Explora Nuestro Catálogo</h2>
+        <p class="section-desc">Encuentra todo lo que necesitas para tu cuidado personal y emprendimiento, distribuido en nuestras cuatro líneas principales.</p>
     </div>
     
     <div class="carousel-container" data-reveal="blur-up">
         <div class="carousel-track">
             <div class="carousel-group">
                 <div class="carousel-item">
-                    <ProductCard image={imgHero} alt="Skincare" category="Skincare (Bioaqua)" name="Kit Vitamina C + Hialurónico" price="Ver Catálogo" tag="Top Piel" />
+                    <ProductCard 
+                        image={imgHero} 
+                        alt="Cuidado Facial" 
+                        category="Línea 01" 
+                        name="Skincare & Cuidado Facial" 
+                        description="Todo lo que tu piel necesita para brillar y mantenerse saludable todos los días." 
+                        tag="Top Ventas" 
+                    />
                 </div>
                 <div class="carousel-item">
-                    <ProductCard image={imgPaleta} alt="Maquillaje" category="Paletas (Kevin & Coco)" name="Paleta Libro KYC 48 Tonos" price="Ver Catálogo" tag="Top Color" />
+                    <ProductCard 
+                        image={imgPaleta} 
+                        alt="Maquillaje" 
+                        category="Línea 02" 
+                        name="Maquillaje & Color" 
+                        description="Paletas, bases y labiales de alta cobertura para resaltar tu belleza natural." 
+                        tag="Tendencia" 
+                    />
                 </div>
                 <div class="carousel-item">
-                    <ProductCard image={imgBrochas} alt="Brochas" category="Accesorios" name="Libro Brochas x 24 Unidades" price="Ver Catálogo" tag="Top Beauty" />
+                    <ProductCard 
+                        image={imgBrochas} 
+                        alt="Accesorios" 
+                        category="Línea 03" 
+                        name="Herramientas & Accesorios" 
+                        description="Brochas, esponjas y kits profesionales para lograr un acabado perfecto." 
+                        tag="Esenciales" 
+                    />
                 </div>
                 <div class="carousel-item">
-                    <ProductCard image={imgPijama} alt="Lencería" category="Lencería & Pijamas" name="Pijama Encaje Fino Rosa" price="Ver Catálogo" tag="Top Íntimo" />
+                    <ProductCard 
+                        image={imgPijama} 
+                        alt="Lencería" 
+                        category="Línea 04" 
+                        name="Lencería & Pijamas" 
+                        description="Prendas íntimas y pijamas súper suaves pensadas para tu comodidad." 
+                        tag="Íntimo" 
+                    />
                 </div>
             </div>
             <!-- Duplicate for infinite scroll -->
             <div class="carousel-group" aria-hidden="true">
                 <div class="carousel-item">
-                    <ProductCard image={imgHero} alt="Skincare" category="Skincare (Bioaqua)" name="Kit Vitamina C + Hialurónico" price="Ver Catálogo" tag="Top Piel" />
+                    <ProductCard 
+                        image={imgHero} 
+                        alt="Cuidado Facial" 
+                        category="Línea 01" 
+                        name="Skincare & Cuidado Facial" 
+                        description="Todo lo que tu piel necesita para brillar y mantenerse saludable todos los días." 
+                        tag="Top Ventas" 
+                    />
                 </div>
                 <div class="carousel-item">
-                    <ProductCard image={imgPaleta} alt="Maquillaje" category="Paletas (Kevin & Coco)" name="Paleta Libro KYC 48 Tonos" price="Ver Catálogo" tag="Top Color" />
+                    <ProductCard 
+                        image={imgPaleta} 
+                        alt="Maquillaje" 
+                        category="Línea 02" 
+                        name="Maquillaje & Color" 
+                        description="Paletas, bases y labiales de alta cobertura para resaltar tu belleza natural." 
+                        tag="Tendencia" 
+                    />
                 </div>
                 <div class="carousel-item">
-                    <ProductCard image={imgBrochas} alt="Brochas" category="Accesorios" name="Libro Brochas x 24 Unidades" price="Ver Catálogo" tag="Top Beauty" />
+                    <ProductCard 
+                        image={imgBrochas} 
+                        alt="Accesorios" 
+                        category="Línea 03" 
+                        name="Herramientas & Accesorios" 
+                        description="Brochas, esponjas y kits profesionales para lograr un acabado perfecto." 
+                        tag="Esenciales" 
+                    />
                 </div>
                 <div class="carousel-item">
-                    <ProductCard image={imgPijama} alt="Lencería" category="Lencería & Pijamas" name="Pijama Encaje Fino Rosa" price="Ver Catálogo" tag="Top Íntimo" />
+                    <ProductCard 
+                        image={imgPijama} 
+                        alt="Lencería" 
+                        category="Línea 04" 
+                        name="Lencería & Pijamas" 
+                        description="Prendas íntimas y pijamas súper suaves pensadas para tu comodidad." 
+                        tag="Íntimo" 
+                    />
                 </div>
             </div>
         </div>
