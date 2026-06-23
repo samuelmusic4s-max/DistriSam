@@ -92,7 +92,28 @@ import imgPijama from '../../assets/products/17-pijama-rosa.jpg';
   @media (max-width: 768px) {
       .routine-section { padding: 3rem 0 4rem; }
       .section-title { font-size: clamp(2rem, 8vw, 2.5rem); }
-      .carousel-item { width: 260px; }
+      .carousel-item { width: 260px; scroll-snap-align: center; }
+      
+      /* En móvil, hacemos que sea scrolleable táctil nativo en vez de animado */
+      .carousel-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .carousel-track {
+        width: 100%;
+        gap: 1.5rem;
+      }
+      .carousel-group {
+        animation: none; /* Quitamos la animación infinita */
+        gap: 1.5rem;
+      }
+      /* Ocultamos el grupo duplicado en móvil porque usamos scroll nativo */
+      .carousel-group[aria-hidden="true"] {
+        display: none;
+      }
   }
   @media (min-width: 769px) {
       .carousel-item { width: 320px; }

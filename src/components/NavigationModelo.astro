@@ -17,13 +17,10 @@ const {activePage} = Astro.props;
             <li><a href="/main" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
             <li><a href="/main#solucion">La Solución</a></li>
             <li><a href="/main#rutina">Rutina Recomendada</a></li>
-            <li><a href="/catalogo" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo</a></li>
+            <li><a href="https://drive.google.com/file/d/1cmFuagIiUby2T40MuBXNZi8OY4xXsuID/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo</a></li>
             <li><a href="/quienes-somos">Quiénes Somos</a></li>
-            <li><a href="/contacto">Contacto</a></li>
         </ul>
         <div class="nav-actions">
-            <button aria-label="Buscar"><span class="material-symbols-outlined">search</span></button>
-            <button aria-label="Carrito"><span class="material-symbols-outlined">shopping_cart</span></button>
             <button class="nav-toggle" id="menu-toggle" aria-label="Menú"><span class="material-symbols-outlined">menu</span></button>
         </div>
     </div>
@@ -42,9 +39,8 @@ const {activePage} = Astro.props;
             <li><a href="/main" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
             <li><a href="/main#solucion">La Solución</a></li>
             <li><a href="/main#rutina">Rutina Recomendada</a></li>
-            <li><a href="/catalogo" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo</a></li>
+            <li><a href="https://drive.google.com/file/d/1cmFuagIiUby2T40MuBXNZi8OY4xXsuID/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class={activePage === 'catalogo' ? 'active' : ''}>Catálogo</a></li>
             <li><a href="/quienes-somos">Quiénes Somos</a></li>
-            <li><a href="/contacto">Contacto</a></li>
         </ul>
     </div>
 </div>
@@ -153,7 +149,7 @@ const {activePage} = Astro.props;
         transform: scale(1.15) translateY(-2px);
         color: #C5A059;
     }
-    .nav-toggle { display: none; }
+    .nav-actions button.nav-toggle { display: none; }
     
     /* Mobile Menu Styles */
     .mobile-menu {
@@ -251,6 +247,6 @@ const {activePage} = Astro.props;
     
     @media (max-width: 1024px) {
         .nav-links { display: none; }
-        .nav-toggle { display: block; }
+        .nav-actions button.nav-toggle { display: block; }
     }
 </style>
