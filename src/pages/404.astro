@@ -15,11 +15,11 @@ import MainFooter from '../components/MainFooter.astro';
           Explora nuestro catálogo para descubrir productos increíbles.
         </p>
         <div class="error-actions">
-          <a href="/" class="btn-primary">
+          <a href="/main" class="btn-primary">
             <span class="material-symbols-outlined">home</span>
             Volver al Inicio
           </a>
-          <a href="/catalogo" class="btn-secondary">
+          <a href="https://drive.google.com/drive/folders/1zpCZNG4K5TVL329bn4_T86Kv-3FNNiFy?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-secondary">
             <span class="material-symbols-outlined">shopping_bag</span>
             Ver Catálogo
           </a>
@@ -138,6 +138,21 @@ import MainFooter from '../components/MainFooter.astro';
     .error-actions .btn-secondary {
       width: 100%;
       justify-content: center;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .not-found-content {
+      max-width: 600px;
+    }
+    .error-code {
+      font-size: 10rem;
+    }
+    .error-title {
+      font-size: 2.5rem;
+    }
+    .error-description {
+      font-size: 1.15rem;
     }
   }
 </style>
