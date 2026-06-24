@@ -1,43 +1,47 @@
-# Astro Starter Kit: Minimal
+# DistriSam Make Up - Frontend
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+Este es el repositorio oficial del Frontend de **DistriSam Make Up**, una tienda y distribuidora de artículos de belleza ubicada en Pasto, Colombia. La aplicación está construida para servir como vitrina digital (tanto para ventas al detal como al por mayor), integrando enlaces hacia los catálogos en PDF y optimizando la experiencia de usuario y el posicionamiento SEO.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Tecnologías Principales
 
-## 🚀 Project Structure
+- **[Astro](https://astro.build/)**: Framework web enfocado en la entrega rápida de contenido estático y SEO.
+- **Svelte**: Utilizado para componentes interactivos puntuales (si los hay).
+- **CSS Nativo**: Estilos personalizados siguiendo patrones de diseño limpios.
+- **Vercel**: Plataforma de despliegue principal.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📂 Estructura del Proyecto
 
 ```text
 /
-├── public/
+├── public/           # Archivos estáticos como el favicon, robots.txt, etc.
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/       # Imágenes locales (logos, iconos, fotos de productos).
+│   ├── components/   # Componentes reutilizables de Astro.
+│   ├── layouts/      # Plantillas base (ej: Layout.astro con las etiquetas SEO).
+│   ├── pages/        # Rutas de la aplicación (index, main, quienes-somos, etc.).
+│   └── styles/       # Hojas de estilo globales.
+├── astro.config.mjs  # Configuración del proyecto Astro (plugins, integraciones, sitemap).
+└── package.json      # Dependencias del proyecto.
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🧞 Comandos Locales
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Todos los comandos se deben ejecutar desde la raíz de este directorio (`/frontend`):
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Comando                  | Acción                                                                  |
+| :----------------------- | :---------------------------------------------------------------------- |
+| `pnpm install`           | Instala todas las dependencias necesarias.                              |
+| `pnpm run dev`           | Levanta el servidor local de desarrollo en `localhost:4321`.            |
+| `pnpm run build`         | Compila el sitio estático para producción en la carpeta `./dist/`.      |
+| `pnpm run preview`       | Previsualiza el build de producción localmente.                         |
 
-## 🧞 Commands
+## 📈 SEO y Metadatos
 
-All commands are run from the root of the project, from a terminal:
+El proyecto cuenta con una sólida base técnica para motores de búsqueda:
+- Generación automática de `sitemap-index.xml`.
+- Configuración de `robots.txt`.
+- Etiquetas estructuradas JSON-LD integradas (LocalBusiness).
+- Soporte para Open Graph y Twitter Cards.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+*Desarrollado con pasión para ayudar a crecer el negocio de DistriSam Make Up.*
