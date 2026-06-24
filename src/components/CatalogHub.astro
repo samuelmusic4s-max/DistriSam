@@ -174,26 +174,6 @@ const categories = [
             </div>
         </section>
 
-        <section class="order-cta-section">
-            <div class="cta-content">
-                <h2>¿Ya sabes qué pedir?</h2>
-                <p>
-                    Escríbenos por WhatsApp con los productos de tu interés y te
-                    ayudaremos a armar tu pedido de inmediato.
-                </p>
-                <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-whatsapp-large"
-                    aria-label="Hacer pedido por WhatsApp"
-                >
-                    <span class="wa-icon" set:html={WA_SVG} />
-                    Haz tu pedido aquí
-                </a>
-            </div>
-        </section>
-
         <section class="payment-info">
             <div class="payment-content">
                 <h3>Nuestros Métodos de Pago</h3>
@@ -791,79 +771,6 @@ const categories = [
         }
     }
 
-    /* --- ORDER CTA SECTION --- */
-    .order-cta-section {
-        padding: 5rem 1.5rem;
-        background: radial-gradient(
-            circle at center,
-            rgba(85, 239, 196, 0.05) 0%,
-            transparent 70%
-        );
-        text-align: center;
-        border-top: 1px solid rgba(26, 26, 26, 0.05);
-    }
-
-    .cta-content {
-        max-width: 600px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.25rem;
-    }
-
-    .cta-content h2 {
-        font-family: var(--font-display);
-        font-size: 2.25rem;
-        color: var(--fg);
-        margin: 0;
-    }
-
-    .cta-content p {
-        font-size: 1.1rem;
-        color: var(--muted);
-        line-height: 1.6;
-        margin: 0 0 1rem 0;
-    }
-
-    .btn-whatsapp-large {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1.2rem 2.5rem;
-        background: #25d366;
-        color: #ffffff;
-        border-radius: 99px;
-        font-family: var(--font-body);
-        font-weight: 700;
-        font-size: 1.15rem;
-        text-decoration: none;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
-    }
-
-    .btn-whatsapp-large:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
-        background: #22c35e;
-    }
-
-    .wa-icon {
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .wa-icon :global(svg) {
-        width: 28px;
-        height: 28px;
-        fill: currentColor;
-        display: block;
-    }
 
     /* --- FLOATING ACTION BUTTON (FAB) --- */
     .whatsapp-fab {
