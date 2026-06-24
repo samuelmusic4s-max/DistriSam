@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import ProfileHeader from "../components/ProfileHeader.astro";
 import LinkCard from "../components/LinkCard.astro";
-import SocialIcons from "../components/SocialIcons.astro";
 import {
   STORE_SVG,
   GRID_SVG,
@@ -55,25 +54,31 @@ const links = [
     external: false,
     hoverColor: "var(--accent)",
   },
-];
-
-const socials = [
   {
+    title: "Instagram",
+    subtitle: "@maquillajedistrisam",
     svgIcon: IG_SVG,
     href: "https://www.instagram.com/maquillajedistrisam",
-    label: "Instagram",
+    featured: false,
+    external: true,
     hoverColor: "#fd79a8",
   },
   {
+    title: "TikTok",
+    subtitle: "@maquillajedistrisam",
     svgIcon: TIKTOK_SVG,
     href: "https://www.tiktok.com/@maquillajedistrisam",
-    label: "TikTok",
+    featured: false,
+    external: true,
     hoverColor: "#2f3640",
   },
   {
+    title: "Facebook",
+    subtitle: "Síguenos en Facebook",
     svgIcon: FB_SVG,
     href: "https://www.facebook.com/share/18yUY3M6Hx/",
-    label: "Facebook",
+    featured: false,
+    external: true,
     hoverColor: "#74b9ff",
   },
 ];
@@ -91,8 +96,6 @@ const socials = [
     <div class="links-wrapper">
       {links.map((link, i) => <LinkCard {...link} index={i} />)}
     </div>
-
-    <SocialIcons items={socials} />
 
     <footer class="link-bio-footer">
       <p class="brand">DistriSam Make Up</p>
