@@ -7,6 +7,24 @@ interface Props {
 }
 
 const { activePage } = Astro.props;
+
+const navItems = [
+    { label: "Inicio", href: "/main", id: "inicio" },
+    { label: "Menú de Enlaces", href: "/", id: "links" },
+    {
+        label: "Catálogo Detal",
+        href: "/catalogo-detal",
+        id: "catalogo",
+        external: false,
+    },
+    {
+        label: "Catálogo Mayorista",
+        href: "/catalogo-mayorista",
+        id: "catalogo-mayorista",
+        external: false,
+    },
+    { label: "Quiénes Somos", href: "/quienes-somos", id: "quienes-somos" },
+];
 ---
 
 <nav class="nav-modelo">
@@ -15,41 +33,24 @@ const { activePage } = Astro.props;
             <Image src={tituloSvg} alt="DistriSam" class="nav-brand-img" />
         </a>
         <ul class="nav-links">
-            <li>
-                <a href="/main" class={activePage === "inicio" ? "active" : ""}
-                    >Inicio</a
-                >
-            </li>
-
-            <li>
-                <a href="/" class={activePage === "links" ? "active" : ""}
-                    >Menú de Enlaces</a
-                >
-            </li>
-
-            <li>
-                <a
-                    href="https://drive.google.com/file/d/1yT-6zh7g2ybP8hY9UdFr_7Sun5VYLDKf/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class={activePage === "catalogo" ? "active" : ""}
-                    >Catálogo Detal</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://drive.google.com/file/d/1IX8WL589GkpA2Y6Dd-rsTdADiQzUfwVC/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer">Catálogo Mayorista</a
-                >
-            </li>
-            <li>
-                <a
-                    href="/quienes-somos"
-                    class={activePage === "quienes-somos" ? "active" : ""}
-                    >Quiénes Somos</a
-                >
-            </li>
+            {
+                navItems.map((item) => (
+                    <li>
+                        <a
+                            href={item.href}
+                            class={activePage === item.id ? "active" : ""}
+                            target={item.external ? "_blank" : undefined}
+                            rel={
+                                item.external
+                                    ? "noopener noreferrer"
+                                    : undefined
+                            }
+                        >
+                            {item.label}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
         <div class="nav-actions">
             <button class="nav-toggle" id="menu-toggle" aria-label="Menú"
@@ -73,36 +74,24 @@ const { activePage } = Astro.props;
             </button>
         </div>
         <ul class="mobile-nav-links">
-            <li>
-                <a href="/main" class={activePage === "inicio" ? "active" : ""}
-                    >Inicio</a
-                >
-            </li>
-            <li><a href="/main#solucion">La Solución</a></li>
-            <li><a href="/main#rutina">Rutina Recomendada</a></li>
-            <li>
-                <a
-                    href="https://drive.google.com/file/d/1yT-6zh7g2ybP8hY9UdFr_7Sun5VYLDKf/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class={activePage === "catalogo" ? "active" : ""}
-                    >Catálogo Detal</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://drive.google.com/file/d/1IX8WL589GkpA2Y6Dd-rsTdADiQzUfwVC/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer">Catálogo Mayorista</a
-                >
-            </li>
-            <li>
-                <a
-                    href="/quienes-somos"
-                    class={activePage === "quienes-somos" ? "active" : ""}
-                    >Quiénes Somos</a
-                >
-            </li>
+            {
+                navItems.map((item) => (
+                    <li>
+                        <a
+                            href={item.href}
+                            class={activePage === item.id ? "active" : ""}
+                            target={item.external ? "_blank" : undefined}
+                            rel={
+                                item.external
+                                    ? "noopener noreferrer"
+                                    : undefined
+                            }
+                        >
+                            {item.label}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </div>
 </div>
@@ -328,6 +317,12 @@ const { activePage } = Astro.props;
     }
     .mobile-menu.is-open .mobile-nav-links li:nth-child(6) a {
         transition-delay: 0.35s;
+    }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(7) a {
+        transition-delay: 0.4s;
+    }
+    .mobile-menu.is-open .mobile-nav-links li:nth-child(8) a {
+        transition-delay: 0.45s;
     }
 
     @media (max-width: 1024px) {
