@@ -1,0 +1,935 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavigationModelo from "./NavigationModelo.astro";
+import { WA_SVG } from "./Icons";
+
+interface Props {
+    title: string;
+    subtitle: string;
+    type: "detal" | "mayorista";
+    fullCatalogUrl: string;
+}
+
+const { title, subtitle, type, fullCatalogUrl } = Astro.props;
+
+const messageTemplate =
+    type === "detal"
+        ? "¡Hola! Estoy interesada/o en algunos productos al detal y me gustaría hacer un pedido 🛍️💄"
+        : "¡Hola! Me interesa comprar al por mayor para mi negocio. Me gustaría recibir asesoría y cotizar un pedido 📦✨";
+const whatsappUrl = `https://wa.me/573027431560?text=${encodeURIComponent(messageTemplate)}`;
+
+const categories = [
+    {
+        id: "skincare",
+        name: "Skincare & Cuidado Facial",
+        description: "Cuidado facial y corporal",
+        icon: "spa",
+        urlDetal:
+            "https://drive.google.com/file/d/1b_lu15YPiIdE8WzH9GHnQpQACOVYFQ8s/view?usp=drive_link",
+        urlMayorista:
+            "https://drive.google.com/file/d/1gt_AU3bpe8Xg1ZHXY96kpGnFq-vpbUGr/view?usp=drive_link",
+    },
+    {
+        id: "labios",
+        name: "Labios",
+        description: "Labiales, Lipgloss, Tintas, Brillos",
+        icon: "face_retouching_natural",
+        urlDetal:
+            "https://drive.google.com/file/d/1Lt0LTjajSc20p_-resuBeQog9ag6Bwwx/view?usp=drive_link",
+        urlMayorista:
+            "https://drive.google.com/file/d/1oU26IflAao641gPB22n6m_QPZrCNuL2I/view?usp=drive_link",
+    },
+    {
+        id: "ojos",
+        name: "Ojos & Cejas",
+        description: "Paletas de Sombras, Cejas, Pestañas",
+        icon: "visibility",
+        urlDetal:
+            "https://drive.google.com/file/d/1PGGlXu0IeQfmq4VURxkbfZTnY1zHIqVr/view?usp=drive_link",
+        urlMayorista:
+            "https://drive.google.com/file/d/1OdIDZnU8R8DoouXFT1l8qGt8hZXGe0eg/view?usp=drive_link",
+    },
+    {
+        id: "rostro",
+        name: "Rostro",
+        description: "Bases, Polvos, Iluminadores, Rubores",
+        icon: "face",
+        urlDetal:
+            "https://drive.google.com/file/d/1SURKoyZVmJ33gxPl6b4cvLrFzCDl1IdZ/view?usp=drive_link",
+        urlMayorista:
+            "https://drive.google.com/file/d/1L0r0FpWkcAjejcjBzj0XVbszr1T8gLv5/view?usp=drive_link",
+    },
+    {
+        id: "herramientas",
+        name: "Herramientas de Maquillaje",
+        description: "Brochas, Pomos, Beauty Blenders",
+        icon: "brush",
+        urlDetal:
+            "https://drive.google.com/file/d/1V324qiFLaBLL_TtXkzziOdH4phv19GQu/view?usp=drive_link",
+        urlMayorista:
+            "https://drive.google.com/file/d/1-S1QbfGniN4KYNv0ZbxLf9uVYr5InFCp/view?usp=drive_link",
+    },
+    {
+        id: "lenceria",
+        name: "Lencería, Medias & Pijamas",
+        description: "Lencería, Medias, Mallas y Pijamas",
+        icon: "checkroom",
+        urlDetal:
+            "https://drive.google.com/file/d/1I2J3qt16dgsdtkdHCHQ2uNc70N-gQ37T/view?usp=drive_link",
+        urlMayorista:
+            "https://drive.google.com/file/d/16xRgc_YbDLluhfWCllo5ANaM84OAcRHA/view?usp=drive_link",
+    },
+    {
+        id: "accesorios",
+        name: "Accesorios",
+        description: "Accesorios varios",
+        icon: "diamond",
+        urlDetal:
+            "https://drive.google.com/file/d/1XHKLgOt-sQUEq-ziQARRhDU8-JxgdFHY/view?usp=drive_link",
+        urlMayorista:
+            "https://drive.google.com/file/d/163hYegn96IEX-9rezSi147yefx8qznC3/view?usp=drive_link",
+    },
+];
+---
+
+<Layout title={`${title} — DistriSam Make Up`} description={subtitle}>
+    <NavigationModelo
+        activePage={type === "detal" ? "catalogo" : "catalogo-mayorista"}
+    />
+
+    <main class="catalog-hub">
+        <header class="hub-hero">
+            <div class="hero-content">
+                <div class="badge">
+                    Catálogo {type === "detal" ? "al Detal" : "Mayorista"}
+                </div>
+                <h1>{title}</h1>
+                <p>{subtitle}</p>
+                {
+                    type === "mayorista" && (
+                        <div class="wholesale-alert">
+                            <span class="material-symbols-outlined icon">
+                                info
+                            </span>
+                            <div class="alert-text">
+                                <strong>IMPORTANTE:</strong> Para ser mayorista
+                                debes realizar un pedido mínimo de{" "}
+                                <strong>$150.000 COP</strong>.
+                            </div>
+                        </div>
+                    )
+                }
+                <a
+                    href={fullCatalogUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary"
+                >
+                    <span class="material-symbols-outlined">menu_book</span>
+                    Ver Catálogo Completo (PDF)
+                </a>
+            </div>
+        </header>
+
+        <section class="categories-container">
+            <div class="categories-header">
+                <h2>Explorar por Categoría</h2>
+                <p>
+                    Encuentra rápidamente lo que buscas abriendo solo la sección
+                    que te interesa.
+                </p>
+            </div>
+
+            <div class="categories-grid">
+                {
+                    categories.map((cat, i) => (
+                        <a
+                            href={
+                                type === "detal"
+                                    ? cat.urlDetal
+                                    : cat.urlMayorista
+                            }
+                            class="category-card"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={`--stagger: ${i};`}
+                        >
+                            <div class="card-icon">
+                                <span class="material-symbols-outlined">
+                                    {cat.icon}
+                                </span>
+                            </div>
+                            <div class="card-content">
+                                <h3>{cat.name}</h3>
+                                {cat.description && <p>{cat.description}</p>}
+                            </div>
+                            <div class="card-action">
+                                <span class="material-symbols-outlined arrow">
+                                    arrow_forward
+                                </span>
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="order-cta-section">
+            <div class="cta-content">
+                <h2>¿Ya sabes qué pedir?</h2>
+                <p>
+                    Escríbenos por WhatsApp con los productos de tu interés y te
+                    ayudaremos a armar tu pedido de inmediato.
+                </p>
+                <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-whatsapp-large"
+                    aria-label="Hacer pedido por WhatsApp"
+                >
+                    <span class="wa-icon" set:html={WA_SVG} />
+                    Haz tu pedido aquí
+                </a>
+            </div>
+        </section>
+
+        <section class="payment-info">
+            <div class="payment-content">
+                <h3>Nuestros Métodos de Pago</h3>
+                <div class="payment-methods">
+                    <!-- Nequi -->
+                    <div
+                        class="pm-card"
+                        style="--brand: #E41165; --brand-light: rgba(228, 17, 101, 0.08);"
+                    >
+                        <div class="pm-logo-wrapper">
+                            <div class="logo-nequi">
+                                <div class="nq-shape cyan"></div>
+                                <div class="nq-shape magenta"></div>
+                                <div class="nq-shape dark"></div>
+                            </div>
+                        </div>
+                        <div class="pm-details">
+                            <span class="pm-name">Nequi</span>
+                            <span class="pm-number">317 797 0323</span>
+                        </div>
+                    </div>
+
+                    <!-- Bancolombia -->
+                    <div
+                        class="pm-card"
+                        style="--brand: #FDDD0D; --brand-light: rgba(253, 221, 13, 0.15);"
+                    >
+                        <div class="pm-logo-wrapper">
+                            <div class="logo-bancolombia">
+                                <div class="bc-stripe yellow"></div>
+                                <div class="bc-stripe blue"></div>
+                                <div class="bc-stripe red"></div>
+                            </div>
+                        </div>
+                        <div class="pm-details">
+                            <span class="pm-name">Bancolombia</span>
+                            <span class="pm-number">879 652 79359</span>
+                        </div>
+                    </div>
+
+                    <!-- DaviPlata -->
+                    <div
+                        class="pm-card"
+                        style="--brand: #ED1C24; --brand-light: rgba(237, 28, 36, 0.08);"
+                    >
+                        <div class="pm-logo-wrapper">
+                            <svg
+                                class="logo-daviplata"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linejoin="round"
+                                stroke-linecap="round"
+                            >
+                                <path d="M16 4L4 14h3v14h18V14h3L16 4z"></path>
+                                <circle
+                                    cx="16"
+                                    cy="18"
+                                    r="4"
+                                    fill="currentColor"></circle>
+                                <path d="M16 22v6"></path>
+                            </svg>
+                        </div>
+                        <div class="pm-details">
+                            <span class="pm-name">DaviPlata</span>
+                            <span class="pm-number">317 797 0323</span>
+                        </div>
+                    </div>
+
+                    <!-- Bre-B -->
+                    <div
+                        class="pm-card"
+                        style="--brand: #1a1a7b; --brand-light: rgba(26, 26, 123, 0.08);"
+                    >
+                        <div class="pm-logo-wrapper">
+                            <svg
+                                class="logo-breb"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path
+                                    d="M12.6,2C8.4,2,5,5.4,5,9.6c0,2.9,1.6,5.4,4,6.7v3.2c0,0.8,0.7,1.5,1.5,1.5h3c0.8,0,1.5-0.7,1.5-1.5v-3.2 c2.4-1.3,4-3.8,4-6.7C19,5.4,15.6,2,12.6,2z M12.6,12.6c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S14.3,12.6,12.6,12.6z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="pm-details">
+                            <span class="pm-name">Bre-B</span>
+                            <span class="pm-number">98394609</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Botón Flotante de WhatsApp (FAB) -->
+        <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="whatsapp-fab"
+            aria-label="Escríbenos por WhatsApp"
+        >
+            <span class="fab-icon" set:html={WA_SVG} />
+            <span class="visually-hidden">Escríbenos por WhatsApp</span>
+        </a>
+    </main>
+</Layout>
+
+<style>
+    .catalog-hub {
+        min-height: 100vh;
+        background-color: var(--surface);
+    }
+
+    .hub-hero {
+        padding: 4rem 1.5rem;
+        background: linear-gradient(
+            to bottom,
+            rgba(249, 246, 240, 1) 0%,
+            rgba(249, 246, 240, 0) 100%
+        );
+        text-align: center;
+        border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background-color: var(--accent);
+        color: var(--matte-black);
+        border-radius: 99px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1.5rem;
+    }
+
+    h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--fg);
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        color: var(--muted);
+        max-width: 600px;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+    }
+
+    .wholesale-alert {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background-color: #ffffff;
+        border: 2px solid var(--accent);
+        padding: 0.8rem 1.8rem;
+        border-radius: 99px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        max-width: fit-content;
+        animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+
+    .wholesale-alert .icon {
+        color: var(--accent-deep);
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wholesale-alert .alert-text {
+        font-size: 0.95rem;
+        color: var(--matte-black);
+        margin: 0;
+        text-align: left;
+        line-height: 1.4;
+    }
+
+    .wholesale-alert .alert-text strong {
+        color: var(--accent-deep);
+        font-weight: 800;
+    }
+
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 2rem;
+        background: var(--matte-black);
+        color: var(--surface);
+        border-radius: 99px;
+        font-family: var(--font-body);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        background: var(--accent);
+    }
+
+    .btn-primary span {
+        font-size: 1.25rem;
+        color: #fff;
+    }
+
+    .btn-primary:hover span {
+        color: var(--matte-black);
+    }
+
+    .categories-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 6rem;
+    }
+
+    .categories-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .categories-header h2 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        color: var(--fg);
+        margin-bottom: 0.5rem;
+    }
+
+    .categories-header p {
+        color: var(--muted);
+    }
+
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .category-card {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.5rem;
+        background: var(--surface);
+        border: 1px solid rgba(26, 26, 26, 0.08);
+        border-radius: 1rem;
+        text-decoration: none;
+        color: var(--fg);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        animation: card-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation-delay: calc(var(--stagger, 0) * 100ms + 400ms);
+    }
+
+    .category-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent);
+        box-shadow: 0 12px 24px rgba(197, 160, 89, 0.15);
+    }
+
+    .card-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: var(--cream);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-deep);
+        flex-shrink: 0;
+        transition: all 0.4s ease;
+    }
+
+    .card-icon span {
+        font-size: 28px;
+    }
+
+    .category-card:hover .card-icon {
+        background: var(--accent);
+        color: var(--matte-black);
+    }
+
+    .card-content {
+        flex: 1;
+    }
+
+    .card-content h3 {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0 0 0.25rem 0;
+    }
+
+    .card-content p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    .card-action {
+        color: var(--muted);
+        transition: all 0.4s ease;
+    }
+
+    .category-card:hover .card-action {
+        color: var(--accent);
+        transform: translateX(4px);
+    }
+
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes card-in {
+        from {
+            opacity: 0;
+            transform: translateY(15px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .payment-info {
+        padding: 6rem 1.5rem;
+        background-color: var(--surface);
+        border-top: 1px solid rgba(26, 26, 26, 0.05);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .payment-info::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 100%;
+        background: radial-gradient(
+            circle at top,
+            rgba(197, 160, 89, 0.04) 0%,
+            transparent 60%
+        );
+        pointer-events: none;
+    }
+
+    .payment-content h3 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        color: var(--fg);
+        margin-bottom: 3.5rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .payment-content h3::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background: var(--accent);
+    }
+
+    .payment-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .pm-card {
+        background: var(--surface);
+        border: 1px solid rgba(26, 26, 26, 0.06);
+        border-radius: 1.25rem;
+        padding: 2.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .pm-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--brand-light);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: -1;
+    }
+
+    .pm-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--brand);
+        box-shadow: 0 20px 40px var(--brand-light);
+    }
+
+    .pm-card:hover::before {
+        opacity: 1;
+    }
+
+    .pm-logo-wrapper {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pm-card:hover .pm-logo-wrapper {
+        transform: scale(1.1);
+    }
+
+    /* Nequi Logo */
+    .logo-nequi {
+        position: relative;
+        width: 48px;
+        height: 48px;
+    }
+    .nq-shape {
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        transform: rotate(15deg);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nq-shape.cyan {
+        background: #00e3d3;
+        top: 0;
+        left: 0;
+    }
+    .nq-shape.magenta {
+        background: #e41165;
+        bottom: 0;
+        right: 0;
+    }
+    .nq-shape.dark {
+        background: #110b29;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+    }
+
+    .pm-card:hover .nq-shape.cyan {
+        transform: rotate(15deg) translate(-4px, -4px);
+    }
+    .pm-card:hover .nq-shape.magenta {
+        transform: rotate(15deg) translate(4px, 4px);
+    }
+
+    /* Bancolombia Logo */
+    .logo-bancolombia {
+        display: flex;
+        gap: 4px;
+        height: 36px;
+        align-items: flex-end;
+    }
+    .bc-stripe {
+        width: 8px;
+        border-radius: 2px;
+        transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bc-stripe.yellow {
+        height: 36px;
+        background: #fddd0d;
+    }
+    .bc-stripe.blue {
+        height: 24px;
+        background: #0047ba;
+    }
+    .bc-stripe.red {
+        height: 16px;
+        background: #e1251b;
+    }
+
+    .pm-card:hover .bc-stripe.yellow {
+        height: 44px;
+    }
+    .pm-card:hover .bc-stripe.blue {
+        height: 32px;
+    }
+    .pm-card:hover .bc-stripe.red {
+        height: 24px;
+    }
+
+    /* DaviPlata Logo */
+    .logo-daviplata {
+        width: 48px;
+        height: 48px;
+        transition: all 0.5s ease;
+    }
+
+    .pm-card:hover .logo-daviplata {
+        filter: drop-shadow(0 4px 8px rgba(237, 28, 36, 0.3));
+    }
+
+    /* Bre-B Logo */
+    .logo-breb {
+        width: 42px;
+        height: 42px;
+        transition: all 0.5s ease;
+    }
+
+    .pm-card:hover .logo-breb {
+        filter: drop-shadow(0 4px 8px rgba(26, 26, 123, 0.3));
+    }
+
+    /* Details */
+    .pm-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .pm-name {
+        font-family: var(--font-body);
+        font-weight: 700;
+        color: var(--fg);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.8rem;
+    }
+
+    .pm-number {
+        font-family: monospace;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: var(--muted);
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+    }
+
+    .pm-card:hover .pm-number {
+        color: var(--brand);
+        font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+        .hub-hero {
+            padding: 3rem 1.5rem;
+        }
+
+        .categories-container {
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        .categories-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* --- ORDER CTA SECTION --- */
+    .order-cta-section {
+        padding: 5rem 1.5rem;
+        background: radial-gradient(
+            circle at center,
+            rgba(85, 239, 196, 0.05) 0%,
+            transparent 70%
+        );
+        text-align: center;
+        border-top: 1px solid rgba(26, 26, 26, 0.05);
+    }
+
+    .cta-content {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    .cta-content h2 {
+        font-family: var(--font-display);
+        font-size: 2.25rem;
+        color: var(--fg);
+        margin: 0;
+    }
+
+    .cta-content p {
+        font-size: 1.1rem;
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 0 0 1rem 0;
+    }
+
+    .btn-whatsapp-large {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1.2rem 2.5rem;
+        background: #25d366;
+        color: #ffffff;
+        border-radius: 99px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 1.15rem;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp-large:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+        background: #22c35e;
+    }
+
+    .wa-icon {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wa-icon :global(svg) {
+        width: 28px;
+        height: 28px;
+        fill: currentColor;
+        display: block;
+    }
+
+    /* --- FLOATING ACTION BUTTON (FAB) --- */
+    .whatsapp-fab {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 64px;
+        height: 64px;
+        background: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+        z-index: 999;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .whatsapp-fab:hover {
+        transform: scale(1.1) translateY(-4px);
+        box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+    }
+
+    .fab-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fab-icon :global(svg) {
+        width: 36px;
+        height: 36px;
+        fill: currentColor;
+        display: block;
+    }
+
+    /* Accessibility visually hidden class */
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    @media (max-width: 768px) {
+        .whatsapp-fab {
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 56px;
+            height: 56px;
+        }
+
+        .fab-icon {
+            width: 30px;
+            height: 30px;
+        }
+    }
+</style>
