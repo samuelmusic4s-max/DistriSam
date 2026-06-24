@@ -1,47 +1,70 @@
-# DistriSam Make Up - Frontend
+<div align="center">
+  <img src="public/favicon.svg" alt="DistriSam Logo" width="120" height="120" />
+  <h1>💄 DistriSam Make Up</h1>
+  <p><strong>Tienda y Distribuidora Oficial — Pasto, Colombia</strong></p>
 
-Este es el repositorio oficial del Frontend de **DistriSam Make Up**, una tienda y distribuidora de artículos de belleza ubicada en Pasto, Colombia. La aplicación está construida para servir como vitrina digital (tanto para ventas al detal como al por mayor), integrando enlaces hacia los catálogos en PDF y optimizando la experiencia de usuario y el posicionamiento SEO.
+  [![Astro](https://img.shields.io/badge/Astro-0C0E14?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+  [![Svelte](https://img.shields.io/badge/Svelte-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)](https://svelte.dev/)
+  [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+</div>
 
-## 🚀 Tecnologías Principales
+<br/>
 
-- **[Astro](https://astro.build/)**: Framework web enfocado en la entrega rápida de contenido estático y SEO.
-- **Svelte**: Utilizado para componentes interactivos puntuales (si los hay).
-- **CSS Nativo**: Estilos personalizados siguiendo patrones de diseño limpios.
-- **Vercel**: Plataforma de despliegue principal.
+Este es el repositorio oficial del Frontend de **DistriSam Make Up**. La aplicación está construida para servir como vitrina digital omnicanal (tanto para ventas al detal como al por mayor), conectando a los clientes con catálogos actualizados y canales de WhatsApp, priorizando un rendimiento ultra rápido y un posicionamiento SEO excepcional.
 
-## 📂 Estructura del Proyecto
+---
+
+## 🚀 Arquitectura y Stack Tecnológico
+
+- **Framework:** [Astro](https://astro.build/) (Optimizado para generar sitios estáticos ultrarrápidos sin JavaScript innecesario).
+- **Componentes Reactivos:** Svelte (Utilizado para micro-interacciones específicas en el cliente).
+- **Estilos:** CSS Nativo + Variables CSS (Diseño responsivo optimizado para móviles).
+- **Despliegue:** [Vercel](https://vercel.com/) (Configurado con CI/CD automático; cualquier push a la rama `main` lanza un despliegue en producción).
+
+## 📂 Estructura del Código
 
 ```text
 /
-├── public/           # Archivos estáticos como el favicon, robots.txt, etc.
+├── public/           # Archivos estáticos públicos (robots.txt, favicon.svg)
 ├── src/
-│   ├── assets/       # Imágenes locales (logos, iconos, fotos de productos).
-│   ├── components/   # Componentes reutilizables de Astro.
-│   ├── layouts/      # Plantillas base (ej: Layout.astro con las etiquetas SEO).
-│   ├── pages/        # Rutas de la aplicación (index, main, quienes-somos, etc.).
-│   └── styles/       # Hojas de estilo globales.
-├── astro.config.mjs  # Configuración del proyecto Astro (plugins, integraciones, sitemap).
-└── package.json      # Dependencias del proyecto.
+│   ├── assets/       # Assets procesados por Astro (Imágenes de productos)
+│   ├── components/   # Componentes modulares y reutilizables de UI
+│   ├── layouts/      # Plantillas globales (Ej: Layout.astro con inyección SEO)
+│   ├── pages/        # Enrutamiento basado en archivos (/, /main, /quienes-somos)
+│   └── styles/       # Hojas de estilo globales
+├── astro.config.mjs  # Configuración principal (Integraciones como el Sitemap)
+└── package.json      # Configuración de Node y dependencias de pnpm
 ```
 
-## 🧞 Comandos Locales
+## 🛠️ Instalación y Desarrollo Local
 
-Todos los comandos se deben ejecutar desde la raíz de este directorio (`/frontend`):
+Para correr este proyecto en tu máquina local, clona el repositorio y asegúrate de tener [Node.js](https://nodejs.org/) y [pnpm](https://pnpm.io/) instalados.
 
-| Comando                  | Acción                                                                  |
-| :----------------------- | :---------------------------------------------------------------------- |
-| `pnpm install`           | Instala todas las dependencias necesarias.                              |
-| `pnpm run dev`           | Levanta el servidor local de desarrollo en `localhost:4321`.            |
-| `pnpm run build`         | Compila el sitio estático para producción en la carpeta `./dist/`.      |
-| `pnpm run preview`       | Previsualiza el build de producción localmente.                         |
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/samuelmusic4s-max/DistriSam.git
 
-## 📈 SEO y Metadatos
+# 2. Entrar a la carpeta del frontend
+cd DistriSam/frontend
 
-El proyecto cuenta con una sólida base técnica para motores de búsqueda:
-- Generación automática de `sitemap-index.xml`.
-- Configuración de `robots.txt`.
-- Etiquetas estructuradas JSON-LD integradas (LocalBusiness).
-- Soporte para Open Graph y Twitter Cards.
+# 3. Instalar dependencias
+pnpm install
+
+# 4. Levantar el servidor de desarrollo
+pnpm run dev
+```
+El servidor estará corriendo en `http://localhost:4321`.
+
+## 📈 SEO y Metadatos Técnicos
+
+El frontend fue diseñado con un enfoque agresivo hacia el posicionamiento en buscadores:
+- **Sitemap Dinámico:** Archivos `sitemap-index.xml` generados automáticamente en cada compilación gracias a la integración oficial `@astrojs/sitemap`.
+- **Datos Estructurados (JSON-LD):** Configuración nativa bajo el estándar de `LocalBusiness` para generar paneles de conocimiento en Google.
+- **Open Graph & Twitter Cards:** Configurados estáticamente en el head global para previsualizaciones enriquecidas al compartir la web en WhatsApp, Facebook y Twitter.
+- **Robots.txt:** Directivas claras para permitir el rastreo profundo de bots.
 
 ---
-*Desarrollado con pasión para ayudar a crecer el negocio de DistriSam Make Up.*
+
+<div align="center">
+  <i>Desarrollado con pasión para digitalizar y escalar el negocio de DistriSam Make Up.</i>
+</div>
