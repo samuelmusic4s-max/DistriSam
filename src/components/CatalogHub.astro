@@ -6,16 +6,13 @@ import { WA_SVG } from "./Icons";
 interface Props {
     title: string;
     subtitle: string;
-    type: "detal" | "mayorista";
     fullCatalogUrl: string;
 }
 
-const { title, subtitle, type, fullCatalogUrl } = Astro.props;
+const { title, subtitle, fullCatalogUrl } = Astro.props;
 
 const messageTemplate =
-    type === "detal"
-        ? "¡Hola! Estoy interesada/o en algunos productos al detal y me gustaría hacer un pedido 🛍️💄"
-        : "¡Hola! Me interesa comprar al por mayor para mi negocio. Me gustaría recibir asesoría y cotizar un pedido 📦✨";
+        "¡Hola! Me interesan algunos de sus productos. Me gustaría recibir asesoría y cotizar un pedido 📦✨";
 const whatsappUrl = `https://wa.me/573027431560?text=${encodeURIComponent(messageTemplate)}`;
 
 const categories = [
@@ -27,7 +24,7 @@ const categories = [
         urlDetal:
             "https://drive.google.com/file/d/1b_lu15YPiIdE8WzH9GHnQpQACOVYFQ8s/view?usp=drive_link",
         urlMayorista:
-            "https://drive.google.com/file/d/1gt_AU3bpe8Xg1ZHXY96kpGnFq-vpbUGr/view?usp=drive_link",
+            "https://drive.google.com/file/d/17vwLW7B2O7OsQglLZMTGI6cvpaFHXKRB/view?usp=sharing",
     },
     {
         id: "labios",
@@ -37,7 +34,7 @@ const categories = [
         urlDetal:
             "https://drive.google.com/file/d/1Lt0LTjajSc20p_-resuBeQog9ag6Bwwx/view?usp=drive_link",
         urlMayorista:
-            "https://drive.google.com/file/d/1oU26IflAao641gPB22n6m_QPZrCNuL2I/view?usp=drive_link",
+            "https://drive.google.com/file/d/1tuBQI4ZFnVm1RJOlrzA1EnyAB-CEFqeS/view?usp=sharing",
     },
     {
         id: "ojos",
@@ -47,7 +44,7 @@ const categories = [
         urlDetal:
             "https://drive.google.com/file/d/1PGGlXu0IeQfmq4VURxkbfZTnY1zHIqVr/view?usp=drive_link",
         urlMayorista:
-            "https://drive.google.com/file/d/1OdIDZnU8R8DoouXFT1l8qGt8hZXGe0eg/view?usp=drive_link",
+            "https://drive.google.com/file/d/1M_PLIPW_KtK9pPZ9tlaLsX3b_xY7Vszf/view?usp=sharing",
     },
     {
         id: "rostro",
@@ -57,7 +54,7 @@ const categories = [
         urlDetal:
             "https://drive.google.com/file/d/1SURKoyZVmJ33gxPl6b4cvLrFzCDl1IdZ/view?usp=drive_link",
         urlMayorista:
-            "https://drive.google.com/file/d/1L0r0FpWkcAjejcjBzj0XVbszr1T8gLv5/view?usp=drive_link",
+            "https://drive.google.com/file/d/1FVEB2u_e5YWmHNC5a47GA95d3ez6NCBO/view?usp=sharing",
     },
     {
         id: "herramientas",
@@ -67,7 +64,7 @@ const categories = [
         urlDetal:
             "https://drive.google.com/file/d/1V324qiFLaBLL_TtXkzziOdH4phv19GQu/view?usp=drive_link",
         urlMayorista:
-            "https://drive.google.com/file/d/1-S1QbfGniN4KYNv0ZbxLf9uVYr5InFCp/view?usp=drive_link",
+            "https://drive.google.com/file/d/1-RrkoAlT7YUL22CykfkwXaDmXkeltyqa/view?usp=sharing",
     },
     {
         id: "lenceria",
@@ -77,7 +74,7 @@ const categories = [
         urlDetal:
             "https://drive.google.com/file/d/1I2J3qt16dgsdtkdHCHQ2uNc70N-gQ37T/view?usp=drive_link",
         urlMayorista:
-            "https://drive.google.com/file/d/16xRgc_YbDLluhfWCllo5ANaM84OAcRHA/view?usp=drive_link",
+            "https://drive.google.com/file/d/1FnLKfEEskGWEMH9MmrHd5rlReMMTueV1/view?usp=sharing",
     },
     {
         id: "accesorios",
@@ -87,34 +84,98 @@ const categories = [
         urlDetal:
             "https://drive.google.com/file/d/1XHKLgOt-sQUEq-ziQARRhDU8-JxgdFHY/view?usp=drive_link",
         urlMayorista:
-            "https://drive.google.com/file/d/163hYegn96IEX-9rezSi147yefx8qznC3/view?usp=drive_link",
+            "https://drive.google.com/file/d/15bk0xY7S1jJzW9AhTFFx4bw2T6ALuyxG/view?usp=sharing",
     },
 ];
+
 ---
+
+<script type="module">
+
+  let timer;
+
+  function showToast(mesage, status="sucessfully") {
+    if (status == "sucessfully") {
+        const toast = document.getElementById("toast");
+    }
+    else {
+        const toast = document.getElementById("toast-failed")
+    }
+    toast.textContent = mesage;
+    toast.style.opacity = "1";
+    clearTimeout(timer);
+    timer = setTimeout(() => toast.style.opacity = "0", 700);
+  }
+
+
+const nequiButton = document.getElementById('nequi_button')
+nequiButton?.addEventListener('click', () => {
+    try
+    {    navigator.clipboard.writeText("3177970323")
+        toast.style.background
+        showToast("✅ Texto Copiado")}
+    catch (error) {
+        showToast("❌ No se pudo copiar el texto", "failed")
+    }
+})
+
+const bancolombiaButton = document.getElementById('bancolombia_button')
+bancolombiaButton?.addEventListener('click', () => {
+    try
+    {navigator.clipboard.writeText("87965279359")
+        showToast("✅ Texto Copiado")
+    }
+    catch (error) {
+        showToast("❌ No se pudo copiar el texto", "failed")
+    }
+})
+
+const daviplataButton = document.getElementById('daviplata_button')
+daviplataButton?.addEventListener('click', () => {
+    try
+    {navigator.clipboard.writeText('3177970323')
+        showToast("✅ Texto Copiado")
+    }
+    catch (error) {
+        showToast("❌ No se pudo copiar el texto", "failed")
+    }
+})
+
+const brebButton = document.getElementById('breb_button')
+brebButton?.addEventListener('click', () => {
+    try
+    {navigator.clipboard.writeText('98394609')
+        showToast("✅ Texto Copiado")
+
+    } catch (error) {
+        showToast("❌ No se pudo copiar el texto", "failed")
+    }
+})
+
+</script>
 
 <Layout title={`${title} — DistriSam Make Up`} description={subtitle}>
     <NavigationModelo
-        activePage={type === "detal" ? "catalogo" : "catalogo-mayorista"}
+        activePage="catálogo"
     />
 
     <main class="catalog-hub">
         <header class="hub-hero">
             <div class="hero-content">
                 <div class="badge">
-                    Catálogo {type === "detal" ? "al Detal" : "Mayorista"}
+                    Catálogo
                 </div>
                 <h1>{title}</h1>
                 <p>{subtitle}</p>
                 {
-                    type === "mayorista" && (
+                     (
                         <div class="wholesale-alert">
                             <span class="material-symbols-outlined icon">
                                 info
                             </span>
                             <div class="alert-text">
-                                <strong>IMPORTANTE:</strong> Para ser mayorista
-                                debes realizar un pedido mínimo de{" "}
-                                <strong>$150.000 COP</strong>.
+                                <strong>IMPORTANTE:</strong>  Para realizar un pedido, éste debe ser de mínimo {" "}
+                                <strong>$100.000 COP</strong>.
                             </div>
                         </div>
                     )
@@ -145,9 +206,7 @@ const categories = [
                     categories.map((cat, i) => (
                         <a
                             href={
-                                type === "detal"
-                                    ? cat.urlDetal
-                                    : cat.urlMayorista
+                                cat.urlMayorista
                             }
                             class="category-card"
                             target="_blank"
@@ -180,6 +239,7 @@ const categories = [
                 <div class="payment-methods">
                     <!-- Nequi -->
                     <div
+                        id="nequi_button"
                         class="pm-card"
                         style="--brand: #E41165; --brand-light: rgba(228, 17, 101, 0.08);"
                     >
@@ -198,6 +258,7 @@ const categories = [
 
                     <!-- Bancolombia -->
                     <div
+                        id="bancolombia_button"
                         class="pm-card"
                         style="--brand: #FDDD0D; --brand-light: rgba(253, 221, 13, 0.15);"
                     >
@@ -216,6 +277,7 @@ const categories = [
 
                     <!-- DaviPlata -->
                     <div
+                        id="daviplata_button"
                         class="pm-card"
                         style="--brand: #ED1C24; --brand-light: rgba(237, 28, 36, 0.08);"
                     >
@@ -246,6 +308,7 @@ const categories = [
 
                     <!-- Bre-B -->
                     <div
+                        id="breb_button"
                         class="pm-card"
                         style="--brand: #1a1a7b; --brand-light: rgba(26, 26, 123, 0.08);"
                     >
@@ -281,6 +344,13 @@ const categories = [
             <span class="visually-hidden">Escríbenos por WhatsApp</span>
         </a>
     </main>
+    <div id="toast" class="toast-success" role="status" aria-live="polite">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </div>
+
+    <div id="toast-failed" class="toast-error" role="status" aria-live="polite">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+    </div>
 </Layout>
 
 <style>
@@ -839,4 +909,66 @@ const categories = [
             height: 30px;
         }
     }
+
+.toast-success {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);  
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: rgba(236, 253, 245, 0.9);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  backdrop-filter: blur(10px);
+  color: #064e3b;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 100;
+}
+
+.toast-error {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: rgba(255, 241, 242, 0.9);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  backdrop-filter: blur(10px);
+  color: #4c0519;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 100;
+}
+
+.toast-success svg {
+  width: 20px;
+  height: 20px;
+  color: #059669;
+  flex-shrink: 0;
+}
+
+.toast-error svg {
+  width: 20px;
+  height: 20px;
+  color: #e11d48;
+  flex-shrink: 0;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(15px);
+}
+
 </style>

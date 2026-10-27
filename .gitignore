@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 .chrome-debug-profile/
 .chrome-error.log
+
+.vscode
+errors.md
